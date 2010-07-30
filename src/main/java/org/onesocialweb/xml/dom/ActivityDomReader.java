@@ -110,20 +110,32 @@ public abstract class ActivityDomReader {
 	
 	public String readParentJID(String href)
 	{
-		if (href.length()==0)
+		if (href.length() == 0) {
 			return null;
-		int i=href.indexOf("?");
-		return href.substring(5, i);
-		
+		}
+
+		int i = href.indexOf("?");
+
+		if (i > 0) {
+			return href.substring(5, i);
+		} else {
+			return null;
+		}       
 	}
 	
 	public String readParentId(String href)
 	{
-		if (href.length()==0)
+		if (href.length() == 0) {
 			return null;
-		int i=href.indexOf("item=");
-		return href.substring(5+i, href.length());
-		
+		}
+
+		int i = href.indexOf("item=");
+
+		if (i > 0) {
+ 			return href.substring(5+i, href.length());
+		} else {
+			return null;
+		}
 	}
 	
 	public String readActivityId(Element element) {
