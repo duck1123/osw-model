@@ -25,6 +25,7 @@ public interface ActivityObject extends AtomEntry {
 	public static String PICTURE = "http://onesocialweb.org/spec/1.0/object/picture";
 	public static String VIDEO = "http://onesocialweb.org/spec/1.0/object/video";
 	public static String LINK = "http://onesocialweb.org/spec/1.0/object/link";
+	public static String NOTE = "http://onesocialweb.org/spec/1.0/object/note";
 	
 	public String getType();
 
