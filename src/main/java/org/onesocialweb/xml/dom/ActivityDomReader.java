@@ -107,37 +107,31 @@ public abstract class ActivityDomReader {
 
 		return entry;
 	}
-	
+
 	public String readParentJID(String href)
 	{
 		if (href.length() == 0) {
 			return null;
-		}
-
-		int i = href.indexOf("?");
-
-		if (i > 0) {
-			return href.substring(5, i);
-		} else {
+		int i=href.indexOf("?");
+		if(i == -1) {
 			return null;
-		}       
+		}
+		return href.substring(5, i);
+
 	}
-	
+
 	public String readParentId(String href)
 	{
 		if (href.length() == 0) {
 			return null;
-		}
-
-		int i = href.indexOf("item=");
-
-		if (i > 0) {
- 			return href.substring(5+i, href.length());
-		} else {
+		int i=href.indexOf("item=");
+		if(i == -1) {
 			return null;
 		}
+		return href.substring(5+i, href.length());
+
 	}
-	
+
 	public String readActivityId(Element element) {
 		return DomHelper.getElementAttribute(element, "id");
 
