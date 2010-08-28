@@ -204,7 +204,7 @@ public class DefaultAtomEntry extends DefaultAtomCommon implements AtomEntry {
 	
 	@Override
 	public boolean hasReplies() {
-		if (links != null || links.size() > 0) {
+		if (!(links == null || links.size() <= 0)) {
 			for (AtomLink link: links) {
 				String rel = link.getRel();
 				if (rel != null && rel.equalsIgnoreCase("replies"))
