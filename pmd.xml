@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.5" timestamp="2010-08-28T09:18:47.754">
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/acl/DefaultAclAction.java">
+<violation beginline="48" endline="48" begincolumn="24" endcolumn="41" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="org.onesocialweb.model.acl" class="DefaultAclAction" method="equals" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
+Ensure you override both equals() and hashCode()
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/acl/DefaultAclRule.java">
+<violation beginline="71" endline="71" begincolumn="24" endcolumn="41" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="org.onesocialweb.model.acl" class="DefaultAclRule" method="equals" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
+Ensure you override both equals() and hashCode()
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/acl/DefaultAclSubject.java">
+<violation beginline="48" endline="48" begincolumn="24" endcolumn="41" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="org.onesocialweb.model.acl" class="DefaultAclSubject" method="equals" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
+Ensure you override both equals() and hashCode()
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/atom/DefaultAtomEntry.java">
+<violation beginline="207" endline="213" begincolumn="17" endcolumn="17" rule="BrokenNullCheck" ruleset="Basic Rules" package="org.onesocialweb.model.atom" class="DefaultAtomEntry" method="hasReplies" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#BrokenNullCheck" priority="2">
+Method call on object which may be null
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/xml/dom/AtomDomReader.java">
+<violation beginline="149" endline="149" begincolumn="53" endcolumn="53" rule="EmptyStatementNotInLoop" ruleset="Basic Rules" package="org.onesocialweb.xml.dom" class="AtomDomReader" method="readReplyTo" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyStatementNotInLoop" priority="3">
+An empty statement (semicolon) not part of a loop
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/xml/dom/VCard4DomReader.java">
+<violation beginline="92" endline="94" begincolumn="35" endcolumn="33" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.onesocialweb.xml.dom" class="VCard4DomReader" method="readProfile" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="94" endline="96" begincolumn="35" endcolumn="33" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.onesocialweb.xml.dom" class="VCard4DomReader" method="readProfile" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="327" endline="343" begincolumn="17" endcolumn="9" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="org.onesocialweb.xml.dom" class="VCard4DomReader" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused method parameters such as 'type'.
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/xml/xpp/XppAclReader.java">
+<violation beginline="58" endline="61" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppAclReader" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/xml/xpp/XppActivityReader.java">
+<violation beginline="86" endline="88" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppActivityReader" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="91" endline="94" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppActivityReader" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="131" endline="133" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppActivityReader" method="readAtomPersonElement" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="274" endline="276" begincolumn="86" endcolumn="33" rule="EmptyIfStmt" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppActivityReader" method="parseObject" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="278" endline="281" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppActivityReader" method="parseObject" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/xml/xpp/XppRelationReader.java">
+<violation beginline="74" endline="76" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppRelationReader" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="79" endline="82" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppRelationReader" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/xml/xpp/XppVCard4Reader.java">
+<violation beginline="96" endline="98" begincolumn="42" endcolumn="41" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="98" endline="100" begincolumn="43" endcolumn="41" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="104" endline="107" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="127" endline="129" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseFullName" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="132" endline="135" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseFullName" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="161" endline="163" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseBirthday" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="166" endline="169" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseBirthday" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="205" endline="208" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseGender" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="228" endline="230" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseNote" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="233" endline="236" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseNote" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="256" endline="258" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parsePhoto" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="261" endline="264" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parsePhoto" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="290" endline="292" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseEmail" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="295" endline="298" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseEmail" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="338" endline="340" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseName" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="343" endline="346" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseName" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="374" endline="376" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseTel" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="379" endline="382" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseTel" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="425" endline="427" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseTimeZone" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="430" endline="433" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseTimeZone" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="455" endline="457" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseUrl" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="460" endline="463" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.onesocialweb.xml.xpp" class="XppVCard4Reader" method="parseUrl" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+</pmd>

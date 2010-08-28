@@ -1,0 +1,13 @@
+org.onesocialweb.model.acl
+org.onesocialweb.model.activity
+org.onesocialweb.model.atom
+org.onesocialweb.model.relation
+org.onesocialweb.model.vcard4
+org.onesocialweb.model.vcard4.exception
+org.onesocialweb.xml.dom
+org.onesocialweb.xml.dom.imp
+org.onesocialweb.xml.dom4j
+org.onesocialweb.xml.namespace
+org.onesocialweb.xml.writer
+org.onesocialweb.xml.xpp
+org.onesocialweb.xml.xpp.imp

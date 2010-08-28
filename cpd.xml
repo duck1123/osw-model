@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="25" tokens="174">
+<file line="79" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/xml/writer/ActivityXmlWriter.java"/>
+<file line="234" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/xml/writer/VCard4XmlWriter.java"/>
+<codefragment>
+<![CDATA[
+			for (AclRule rule : field.getAclRules()) {
+				openTag("osw:" + Onesocialweb.ACL_RULE_ELEMENT);
+				if (rule.hasActions()) {
+					for (AclAction action : rule.getActions()) {
+						startTag("osw:" + Onesocialweb.ACL_ACTION_ELEMENT);
+						attribute(Onesocialweb.PERMISSION_ATTRIBUTE, action.getPermission());
+						endOpen();
+						if (action.hasName())
+							buffer.append(xmlEncode(action.getName()));
+						closeTag("osw:" + Onesocialweb.ACL_ACTION_ELEMENT);
+					}
+				}
+				if (rule.hasSubjects()) {
+					for (AclSubject subject : rule.getSubjects()) {
+						startTag("osw:" + Onesocialweb.ACL_SUBJECT_ELEMENT);
+						attribute(Onesocialweb.TYPE_ATTRIBUTE, subject.getType());
+						endOpen();
+						if (subject.hasName())
+							buffer.append(xmlEncode(subject.getName()));
+						closeTag("osw:" + Onesocialweb.ACL_SUBJECT_ELEMENT);
+					}
+				}
+				closeTag("osw:" + Onesocialweb.ACL_RULE_ELEMENT);
+			}
+		}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="33" tokens="113">
+<file line="35" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultEmailField.java"/>
+<file line="32" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultTelField.java"/>
+<codefragment>
+<![CDATA[
+	public Type getType()
+	{
+		return this.type;
+	}
+	
+	@Override
+	public void addAclRule(AclRule rule) {
+		rules.add(rule);
+	}
+
+	@Override
+	public List<AclRule> getAclRules() {
+		return Collections.unmodifiableList(rules);
+	}
+
+	@Override
+	public void removeAclRule(AclRule rule) {
+		rules.remove(rule);
+	}
+
+	@Override
+	public void setAclRules(List<AclRule> rules) {
+		this.rules = rules;
+	}
+	
+	@Override
+	public boolean hasAclRules() {
+		if (rules != null && rules.size() > 0) {
+			return true;
+		}
+		return false;
+	}
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="31" tokens="104">
+<file line="36" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultEmailField.java"/>
+<file line="39" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultGenderField.java"/>
+<codefragment>
+<![CDATA[
+		this.type = type;
+	}
+
+	@Override
+	public void addAclRule(AclRule rule) {
+		rules.add(rule);
+	}
+
+	@Override
+	public List<AclRule> getAclRules() {
+		return Collections.unmodifiableList(rules);
+	}
+
+	@Override
+	public void removeAclRule(AclRule rule) {
+		rules.remove(rule);
+	}
+
+	@Override
+	public void setAclRules(List<AclRule> rules) {
+		this.rules = rules;
+	}
+	
+	@Override
+	public boolean hasAclRules() {
+		if (rules != null && rules.size() > 0) {
+			return true;
+		}
+		return false;
+	}
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="31" tokens="103">
+<file line="40" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultNoteField.java"/>
+<file line="40" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultPhotoField.java"/>
+<file line="35" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultTelField.java"/>
+<file line="23" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultURLField.java"/>
+<codefragment>
+<![CDATA[
+	}
+	
+	@Override
+	public void addAclRule(AclRule rule) {
+		rules.add(rule);
+	}
+
+	@Override
+	public List<AclRule> getAclRules() {
+		return Collections.unmodifiableList(rules);
+	}
+
+	@Override
+	public void removeAclRule(AclRule rule) {
+		rules.remove(rule);
+	}
+
+	@Override
+	public void setAclRules(List<AclRule> rules) {
+		this.rules = rules;
+	}
+	
+	@Override
+	public boolean hasAclRules() {
+		if (rules != null && rules.size() > 0) {
+			return true;
+		}
+		return false;
+	}
+
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="31" tokens="103">
+<file line="59" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultNameField.java"/>
+<file line="48" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultTimeZoneField.java"/>
+<codefragment>
+<![CDATA[
+	}
+	
+	@Override
+	public void addAclRule(AclRule rule) {
+		rules.add(rule);
+	}
+	
+	@Override
+	public List<AclRule> getAclRules() {
+		return Collections.unmodifiableList(rules);
+	}
+
+	@Override
+	public void setAclRules(List<AclRule> rules) {
+		this.rules = rules;
+	}
+
+	@Override
+	public void removeAclRule(AclRule rule) {
+		rules.remove(rule);
+	}
+
+	@Override
+	public boolean hasAclRules() {
+		if (rules != null && rules.size() > 0) {
+			return true;
+		}
+		return false;
+	}
+
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="30" tokens="103">
+<file line="37" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultEmailField.java"/>
+<file line="40" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultFullNameField.java"/>
+<file line="40" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultNoteField.java"/>
+<codefragment>
+<![CDATA[
+	}
+	
+	@Override
+	public void addAclRule(AclRule rule) {
+		rules.add(rule);
+	}
+
+	@Override
+	public List<AclRule> getAclRules() {
+		return Collections.unmodifiableList(rules);
+	}
+
+	@Override
+	public void removeAclRule(AclRule rule) {
+		rules.remove(rule);
+	}
+
+	@Override
+	public void setAclRules(List<AclRule> rules) {
+		this.rules = rules;
+	}
+	
+	@Override
+	public boolean hasAclRules() {
+		if (rules != null && rules.size() > 0) {
+			return true;
+		}
+		return false;
+	}
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="29" tokens="102">
+<file line="65" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultBirthdayField.java"/>
+<file line="59" path="/home/duck/projects/osw-model/src/main/java/org/onesocialweb/model/vcard4/DefaultNameField.java"/>
+<codefragment>
+<![CDATA[
+	}
+
+	@Override
+	public void addAclRule(AclRule rule) {
+		rules.add(rule);
+	}
+
+	@Override
+	public List<AclRule> getAclRules() {
+		return Collections.unmodifiableList(rules);
+	}
+
+	@Override
+	public void setAclRules(List<AclRule> rules) {
+		this.rules = rules;
+	}
+
+	@Override
+	public void removeAclRule(AclRule rule) {
+		rules.remove(rule);
+	}
+
+	@Override
+	public boolean hasAclRules() {
+		if (rules != null && rules.size() > 0) {
+			return true;
+		}
+		return false;
+	}
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>
