@@ -110,7 +110,7 @@ public abstract class ActivityDomReader {
 
 	public String readParentJID(String href)
 	{
-		if (href.length() == 0) {
+		if (href.length() == 0)
 			return null;
 		int i=href.indexOf("?");
 		if(i == -1) {
@@ -122,7 +122,7 @@ public abstract class ActivityDomReader {
 
 	public String readParentId(String href)
 	{
-		if (href.length() == 0) {
+		if (href.length() == 0)
 			return null;
 		int i=href.indexOf("item=");
 		if(i == -1) {
