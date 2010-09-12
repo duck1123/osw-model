@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.relation;
 
@@ -38,34 +38,34 @@ import org.w3c.dom.Element;
 
 public class RelationDomWriterTest {
 
-	@Test
-	public void entryToXML() throws DocumentException, IOException {
-		RelationFactory relationFactory = new DefaultRelationFactory();
-		
-		Relation relation = relationFactory.relation();
-		relation.setId("urn:uuid:0bfb71a4-d8fd-4410-b119-199c3596f296");
-		relation.setFrom("romeo@montague.lit");
-		relation.setTo("juliet@capulet.lit");
-		relation.setNature(Relation.Nature.COLLEAGUE);
-		relation.setStatus(Relation.Status.REQUEST);
-		relation.setComment("A really nice girl :-)");
-		relation.setMessage("Dude ! Behave !");
-		relation.setPublished(Calendar.getInstance().getTime());
-		
-		AclFactory aclFactory = new DefaultAclFactory();
-		AclRule rule = aclFactory.aclRule();
-		rule.addAction(aclFactory.aclAction(AclAction.ACTION_VIEW, AclAction.PERMISSION_GRANT));
-		rule.addSubject(aclFactory.aclSubject(null, AclSubject.EVERYONE));
-		relation.addAclRule(rule);		
+    @Test
+    public void entryToXML() throws DocumentException, IOException {
+        RelationFactory relationFactory = new DefaultRelationFactory();
 
-		DOMDocument document = new DOMDocument();
-		RelationDomWriter writer = new DefaultRelationDomWriter();
-		Element element = writer.toElement(relation, document);
-		assertNotNull(element);
-		
-		DOMReader reader = new DOMReader();		
+        Relation relation = relationFactory.relation();
+        relation.setId("urn:uuid:0bfb71a4-d8fd-4410-b119-199c3596f296");
+        relation.setFrom("romeo@montague.lit");
+        relation.setTo("juliet@capulet.lit");
+        relation.setNature(Relation.Nature.COLLEAGUE);
+        relation.setStatus(Relation.Status.REQUEST);
+        relation.setComment("A really nice girl :-)");
+        relation.setMessage("Dude ! Behave !");
+        relation.setPublished(Calendar.getInstance().getTime());
+
+        AclFactory aclFactory = new DefaultAclFactory();
+        AclRule rule = aclFactory.aclRule();
+        rule.addAction(aclFactory.aclAction(AclAction.ACTION_VIEW, AclAction.PERMISSION_GRANT));
+        rule.addSubject(aclFactory.aclSubject(null, AclSubject.EVERYONE));
+        relation.addAclRule(rule);
+
+        DOMDocument document = new DOMDocument();
+        RelationDomWriter writer = new DefaultRelationDomWriter();
+        Element element = writer.toElement(relation, document);
+        assertNotNull(element);
+
+        DOMReader reader = new DOMReader();
         OutputFormat format = OutputFormat.createPrettyPrint();
         XMLWriter xmlWriter = new XMLWriter( System.out, format );
         xmlWriter.write(reader.read(document));
-	}
+    }
 }

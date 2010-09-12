@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 
 package org.onesocialweb.xml.dom.imp;
@@ -24,14 +24,13 @@ import org.onesocialweb.xml.dom.VCard4DomReader;
 
 public class DefaultVCard4DomReader extends VCard4DomReader {
 
-	@Override
-	protected AclDomReader getAclDomReader() {
-		return new DefaultAclDomReader();
-	}
+    @Override
+    protected AclDomReader getAclDomReader() {
+        return new DefaultAclDomReader();
+    }
 
-	@Override
-	protected VCard4Factory getProfileFactory() {
-		return new DefaultVCard4Factory();
-	}
-
+    @Override
+    protected VCard4Factory getProfileFactory() {
+        return new DefaultVCard4Factory();
+    }
 }

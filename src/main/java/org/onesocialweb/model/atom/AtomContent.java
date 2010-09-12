@@ -12,28 +12,27 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
 public interface AtomContent {
 
-	public String getSrc();
+    public String getSrc();
 
-	public String getType();
+    public String getType();
 
-	public String getValue();
+    public String getValue();
 
-	public void setSrc(final String src);
+    public void setSrc(final String src);
 
-	public void setType(final String type);
+    public void setType(final String type);
 
-	public void setValue(final String value);
-	
-	public boolean hasSrc();
-	
-	public boolean hasType();
-	
-	public boolean hasValue();
+    public void setValue(final String value);
 
+    public boolean hasSrc();
+
+    public boolean hasType();
+
+    public boolean hasValue();
 }

@@ -12,28 +12,27 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
 public interface AtomPerson extends AtomCommon {
-	
-	public String getEmail();
 
-	public String getName();
+    public String getEmail();
 
-	public String getUri();
+    public String getName();
 
-	public void setEmail(String email);
+    public String getUri();
 
-	public void setName(String name);
+    public void setEmail(String email);
 
-	public void setUri(String uri);
-	
-	public boolean hasEmail();
-	
-	public boolean hasName();
-	
-	public boolean hasUri();
+    public void setName(String name);
 
+    public void setUri(String uri);
+
+    public boolean hasEmail();
+
+    public boolean hasName();
+
+    public boolean hasUri();
 }

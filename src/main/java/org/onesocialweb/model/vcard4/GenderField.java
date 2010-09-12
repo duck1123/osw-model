@@ -12,50 +12,49 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 
 package org.onesocialweb.model.vcard4;
 
 public abstract class GenderField extends Field {
-	
-	public static final String NAME = "gender";
-	
-	public enum Type {
-		NOTKNOWN, MALE, FEMALE, NOTAPPLICABLE
-	};
 
-	@Override
-	public String getName() {
-		return NAME;
-	}
-	
-	@Override
-	public String getValue() {
-		switch (getGender()) {
-		case NOTKNOWN:
-			return "not known";
-		case MALE:
-			return "male";
-		case FEMALE:
-			return "female";
-		case NOTAPPLICABLE:
-			return "not applicable";
-		default:
-			return "not known";
-		}
-	}
+    public static final String NAME = "gender";
 
-	@Override
-	public boolean isValid() {
-		// TODO Auto-generated method stub
-		if (getGender()==null)
-			return false;
-		return true;
-	}
+    public enum Type {
+        NOTKNOWN, MALE, FEMALE, NOTAPPLICABLE
+    };
 
-	public abstract Type getGender();
+    @Override
+    public String getName() {
+        return NAME;
+    }
 
-	public abstract void setGender(Type type);
+    @Override
+    public String getValue() {
+        switch (getGender()) {
+        case NOTKNOWN:
+            return "not known";
+        case MALE:
+            return "male";
+        case FEMALE:
+            return "female";
+        case NOTAPPLICABLE:
+            return "not applicable";
+        default:
+            return "not known";
+        }
+    }
 
+    @Override
+    public boolean isValid() {
+        // TODO Auto-generated method stub
+        if (getGender()==null)
+            return false;
+        return true;
+    }
+
+    public abstract Type getGender();
+
+    public abstract void setGender(Type type);
 }

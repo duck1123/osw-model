@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.vcard4;
 
@@ -28,29 +28,29 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 public class XppVCard4ReaderTest {
 
-	@Test
-	public void testParse() {
+    @Test
+    public void testParse() {
 
         Profile profile = null;
-		try {
-			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+        try {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             factory.setNamespaceAware(true);
             XmlPullParser xpp = factory.newPullParser();
-            xpp.setInput(getClass().getClassLoader().getResourceAsStream("vcard4.xml"), "UTF-8");                    
+            xpp.setInput(getClass().getClassLoader().getResourceAsStream("vcard4.xml"), "UTF-8");
             DefaultXppVCard4Reader reader = new DefaultXppVCard4Reader();
             xpp.next();  xpp.nextTag();
             profile = reader.parse(xpp);
-		} catch (XmlPullParserException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		assertNotNull(profile);
-		
-		profile.setUserId("alice@wonderland.it");
-		System.out.println("Profile:" + profile);
-	}
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        assertNotNull(profile);
+
+        profile.setUserId("alice@wonderland.it");
+        System.out.println("Profile:" + profile);
+    }
 
 }

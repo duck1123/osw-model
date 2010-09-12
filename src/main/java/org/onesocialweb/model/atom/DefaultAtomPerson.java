@@ -12,77 +12,77 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
 public class DefaultAtomPerson extends DefaultAtomCommon implements AtomPerson {
 
-	private String email;
+    private String email;
 
-	private String name;
+    private String name;
 
-	private String uri;
+    private String uri;
 
-	@Override
-	public String getEmail() {
-		return email;
-	}
+    @Override
+    public String getEmail() {
+        return email;
+    }
 
-	@Override
-	public String getName() {
-		return name;
-	}
+    @Override
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public String getUri() {
-		return uri;
-	}
+    @Override
+    public String getUri() {
+        return uri;
+    }
 
-	@Override
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@Override
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public void setUri(String uri) {
-		this.uri = uri;
-	}
+    @Override
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
 
-	@Override
-	public String toString() {
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("[AtomPerson ");
-		if (name != null) {
-			buffer.append("name:" + name + " ");
-		}
-		if (email != null) {
-			buffer.append("email:" + email + " ");
-		}
-		if (uri != null) {
-			buffer.append("uri:" + uri + " ");
-		}
-		buffer.append("]");
-		return buffer.toString();
-	}
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("[AtomPerson ");
+        if (name != null) {
+            buffer.append("name:" + name + " ");
+        }
+        if (email != null) {
+            buffer.append("email:" + email + " ");
+        }
+        if (uri != null) {
+            buffer.append("uri:" + uri + " ");
+        }
+        buffer.append("]");
+        return buffer.toString();
+    }
 
-	@Override
-	public boolean hasEmail() {
-		return email != null;
-	}
+    @Override
+    public boolean hasEmail() {
+        return email != null;
+    }
 
-	@Override
-	public boolean hasName() {
-		return name != null;
-	}
+    @Override
+    public boolean hasName() {
+        return name != null;
+    }
 
-	@Override
-	public boolean hasUri() {
-		return uri != null;
-	}
+    @Override
+    public boolean hasUri() {
+        return uri != null;
+    }
 }

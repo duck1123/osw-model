@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.activity;
 
@@ -23,41 +23,40 @@ import org.onesocialweb.model.atom.AtomEntry;
 
 public interface ActivityEntry extends AtomEntry {
 
-	public void addObject(ActivityObject object);
-	
-	public void addVerb(ActivityVerb verb);
-	
-	public void addAclRule(AclRule rule);
-	
-	public List<AclRule> getAclRules();
-	
-	public ActivityActor getActor();
+    public void addObject(ActivityObject object);
 
-	public List<ActivityObject> getObjects();
+    public void addVerb(ActivityVerb verb);
 
-	public List<ActivityVerb> getVerbs();
+    public void addAclRule(AclRule rule);
 
-	
-	public boolean hasAclRules();
-	
-	public boolean hasObjects();
-	
-	public boolean hasActor();
-	
-	public boolean hasVerbs();
-	
-	public void removeObject(ActivityObject object);
-	
-	public void removeVerb(ActivityVerb verb);
-	
-	public void removeAclRule(AclRule rule);		
+    public List<AclRule> getAclRules();
 
-	public void setAclRules(List<AclRule> rules);
+    public ActivityActor getActor();
 
-	public void setActor(final ActivityActor actor);
+    public List<ActivityObject> getObjects();
 
-	public void setObjects(List<ActivityObject> objects);
+    public List<ActivityVerb> getVerbs();
 
-	public void setVerbs(final List<ActivityVerb> verbs);
 
+    public boolean hasAclRules();
+
+    public boolean hasObjects();
+
+    public boolean hasActor();
+
+    public boolean hasVerbs();
+
+    public void removeObject(ActivityObject object);
+
+    public void removeVerb(ActivityVerb verb);
+
+    public void removeAclRule(AclRule rule);
+
+    public void setAclRules(List<AclRule> rules);
+
+    public void setActor(final ActivityActor actor);
+
+    public void setObjects(List<ActivityObject> objects);
+
+    public void setVerbs(final List<ActivityVerb> verbs);
 }

@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.xml.xpp.imp;
 
@@ -24,21 +24,19 @@ import org.onesocialweb.xml.xpp.XppAclReader;
 import org.onesocialweb.xml.xpp.XppRelationReader;
 
 public class DefaultXppRelationReader extends XppRelationReader {
-	
-	@Override
-	protected AclFactory getAclFactory() {
-		return new DefaultAclFactory();
-	}
-	
-	@Override
-	protected RelationFactory getRelationFactory() {
-		return new DefaultRelationFactory();
-	}
 
-	@Override
-	protected XppAclReader getXppAclReader() {
-		return new DefaultXppAclReader();
-	}
+    @Override
+    protected AclFactory getAclFactory() {
+        return new DefaultAclFactory();
+    }
 
+    @Override
+    protected RelationFactory getRelationFactory() {
+        return new DefaultRelationFactory();
+    }
+
+    @Override
+    protected XppAclReader getXppAclReader() {
+        return new DefaultXppAclReader();
+    }
 }
-

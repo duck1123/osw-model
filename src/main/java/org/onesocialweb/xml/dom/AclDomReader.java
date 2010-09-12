@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.xml.dom;
 
@@ -26,54 +26,53 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public abstract class AclDomReader {
-	
-	private final AclFactory factory;
-	
-	public AclDomReader() {
-		this.factory = getAclFactory();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.onesocialweb.model.acl.AclDomReader#readRule(org.w3c.dom.Element)
-	 */
-	public AclRule readRule(Element element) {
-		AclRule rule = factory.aclRule();
 
-		// Process the actions
-		NodeList actions = element.getElementsByTagNameNS(Onesocialweb.NAMESPACE, Onesocialweb.ACL_ACTION_ELEMENT);
-		for (int i = 0; i <  actions.getLength(); i++) {
-			Node action = actions.item(i);
-			if (action.getNodeType() == Node.ELEMENT_NODE) {
-				rule.addAction(readAction((Element) action));
-			}
-		}
+    private final AclFactory factory;
 
-		// Process the subjects
-		NodeList subjects = element.getElementsByTagNameNS(Onesocialweb.NAMESPACE, Onesocialweb.ACL_SUBJECT_ELEMENT);
-		for (int i = 0; i <  subjects.getLength(); i++) {
-			Node subject = subjects.item(i);
-			if (subject.getNodeType() == Node.ELEMENT_NODE) {
-				rule.addSubject(readSubject((Element) subject));
-			}
-		}
+    public AclDomReader() {
+        this.factory = getAclFactory();
+    }
 
-		return rule;
-	}
-	
-	protected AclAction readAction(Element element) {
-		AclAction action = factory.aclAction();
-		action.setName(element.getTextContent().trim());
-		action.setPermission(element.getAttribute(Onesocialweb.PERMISSION_ATTRIBUTE));
-		return action;
-	}
+    /* (non-Javadoc)
+     * @see org.onesocialweb.model.acl.AclDomReader#readRule(org.w3c.dom.Element)
+     */
+    public AclRule readRule(Element element) {
+        AclRule rule = factory.aclRule();
 
-	protected AclSubject readSubject(Element element) {
-		AclSubject subject = factory.aclSubject();
-		subject.setType(element.getAttribute(Onesocialweb.TYPE_ATTRIBUTE));
-		subject.setName(element.getTextContent().trim());
-		return subject;
-	}
+        // Process the actions
+        NodeList actions = element.getElementsByTagNameNS(Onesocialweb.NAMESPACE, Onesocialweb.ACL_ACTION_ELEMENT);
+        for (int i = 0; i <  actions.getLength(); i++) {
+            Node action = actions.item(i);
+            if (action.getNodeType() == Node.ELEMENT_NODE) {
+                rule.addAction(readAction((Element) action));
+            }
+        }
 
-	protected abstract AclFactory getAclFactory();
-	
+        // Process the subjects
+        NodeList subjects = element.getElementsByTagNameNS(Onesocialweb.NAMESPACE, Onesocialweb.ACL_SUBJECT_ELEMENT);
+        for (int i = 0; i <  subjects.getLength(); i++) {
+            Node subject = subjects.item(i);
+            if (subject.getNodeType() == Node.ELEMENT_NODE) {
+                rule.addSubject(readSubject((Element) subject));
+            }
+        }
+
+        return rule;
+    }
+
+    protected AclAction readAction(Element element) {
+        AclAction action = factory.aclAction();
+        action.setName(element.getTextContent().trim());
+        action.setPermission(element.getAttribute(Onesocialweb.PERMISSION_ATTRIBUTE));
+        return action;
+    }
+
+    protected AclSubject readSubject(Element element) {
+        AclSubject subject = factory.aclSubject();
+        subject.setType(element.getAttribute(Onesocialweb.TYPE_ATTRIBUTE));
+        subject.setName(element.getTextContent().trim());
+        return subject;
+    }
+
+    protected abstract AclFactory getAclFactory();
 }

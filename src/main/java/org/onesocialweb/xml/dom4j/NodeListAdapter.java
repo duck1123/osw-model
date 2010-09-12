@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.xml.dom4j;
 
@@ -25,20 +25,19 @@ import org.w3c.dom.NodeList;
 
 public class NodeListAdapter implements NodeList {
 
-	private List<Element> elements = new ArrayList<Element>();
-	
-	@Override
-	public int getLength() {
-		return elements.size();
-	}
+    private List<Element> elements = new ArrayList<Element>();
 
-	@Override
-	public Node item(int index) {
-		return elements.get(index);
-	}
-	
-	public void addElement(Element element) {
-		this.elements.add(element);
-	}
+    @Override
+    public int getLength() {
+        return elements.size();
+    }
 
+    @Override
+    public Node item(int index) {
+        return elements.get(index);
+    }
+
+    public void addElement(Element element) {
+        this.elements.add(element);
+    }
 }

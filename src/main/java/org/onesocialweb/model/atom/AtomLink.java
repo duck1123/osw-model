@@ -12,50 +12,49 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
 public interface AtomLink extends AtomCommon {
 
-	public String getHref();
+    public String getHref();
 
-	public String getHreflang();
+    public String getHreflang();
 
-	public String getLength();
+    public String getLength();
 
-	public String getRel();
+    public String getRel();
 
-	public String getTitle();
+    public String getTitle();
 
-	public String getType();
-	
-	public int getCount();
-	
-	public void setCount(int count);
+    public String getType();
 
-	public void setHref(final String href);
+    public int getCount();
 
-	public void setHreflang(final String hreflang);
+    public void setCount(int count);
 
-	public void setLength(final String length);
+    public void setHref(final String href);
 
-	public void setRel(final String rel);
+    public void setHreflang(final String hreflang);
 
-	public void setTitle(final String title);
+    public void setLength(final String length);
 
-	public void setType(final String type);
-	
-	public boolean hasHref();
-	
-	public boolean hasHreflang();
-	
-	public boolean hasLength();
-	
-	public boolean hasRel();
-	
-	public boolean hasTitle();
-	
-	public boolean hasType();
+    public void setRel(final String rel);
 
+    public void setTitle(final String title);
+
+    public void setType(final String type);
+
+    public boolean hasHref();
+
+    public boolean hasHreflang();
+
+    public boolean hasLength();
+
+    public boolean hasRel();
+
+    public boolean hasTitle();
+
+    public boolean hasType();
 }

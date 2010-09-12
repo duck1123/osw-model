@@ -12,30 +12,29 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.activity;
 
 public abstract class ActivityFactory {
-	
-	public abstract ActivityActor actor();
-	
-	public abstract ActivityEntry entry();
-	
-	public abstract ActivityObject object();
-	
-	public abstract ActivityVerb verb();
-	
-	public ActivityObject object(String type) {
-		ActivityObject object = object();
-		object.setType(type);
-		return object;
-	}
-	
-	public ActivityVerb verb(String name) {
-		ActivityVerb verb = verb();
-		verb.setValue(name);
-		return verb;
-	}
-	
+
+    public abstract ActivityActor actor();
+
+    public abstract ActivityEntry entry();
+
+    public abstract ActivityObject object();
+
+    public abstract ActivityVerb verb();
+
+    public ActivityObject object(String type) {
+        ActivityObject object = object();
+        object.setType(type);
+        return object;
+    }
+
+    public ActivityVerb verb(String name) {
+        ActivityVerb verb = verb();
+        verb.setValue(name);
+        return verb;
+    }
 }

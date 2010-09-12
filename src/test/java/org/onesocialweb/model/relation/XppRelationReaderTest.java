@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.relation;
 
@@ -28,27 +28,26 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 public class XppRelationReaderTest {
 
-	@Test
-	public void testParse() {
+    @Test
+    public void testParse() {
 
         Relation relation = null;
-		try {
-			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+        try {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             factory.setNamespaceAware(true);
             XmlPullParser xpp = factory.newPullParser();
             xpp.setInput(getClass().getClassLoader().getResourceAsStream("relation.xml"), "UTF-8");
             DefaultXppRelationReader reader = new DefaultXppRelationReader();
             xpp.next();
             relation = reader.parse(xpp);
-		} catch (XmlPullParserException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		assertNotNull(relation);
-		System.out.println("Relation: " + relation);
-	}
-	
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        assertNotNull(relation);
+        System.out.println("Relation: " + relation);
+    }
 }

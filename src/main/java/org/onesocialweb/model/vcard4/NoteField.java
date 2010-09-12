@@ -12,32 +12,31 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 
 package org.onesocialweb.model.vcard4;
 
 public abstract class NoteField extends Field {
 
-	public static final String NAME = "note";
-	
-	@Override
-	public String getName() {
-		return NAME;
-	}
-	
-	@Override
-	public String getValue() {
-		return getNote();
-	}
-	
-	@Override
-	public boolean isValid() {
-		return true;
-	}
-	
-	public abstract String getNote();
-	
-	public abstract void setNote(String note);
+    public static final String NAME = "note";
 
+    @Override
+    public String getName() {
+        return NAME;
+    }
+
+    @Override
+    public String getValue() {
+        return getNote();
+    }
+
+    @Override
+    public boolean isValid() {
+        return true;
+    }
+
+    public abstract String getNote();
+
+    public abstract void setNote(String note);
 }

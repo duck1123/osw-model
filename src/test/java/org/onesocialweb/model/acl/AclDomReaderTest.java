@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.acl;
 
@@ -33,56 +33,55 @@ import org.w3c.dom.Element;
 
 public class AclDomReaderTest {
 
-	private AclDomReader aclDomReader;
-	
-	@Before
-	public void setUp() throws Exception {
-		aclDomReader = new DefaultAclDomReader() {
+    private AclDomReader aclDomReader;
 
-			@Override
-			protected AclFactory getAclFactory() {
-				return new DefaultAclFactory();
-			}
-			
-		};
-	}
-	
-	@Test
-	public void testLoadXml() throws DocumentException {
-		AclRule rule = readRule("acl-rule.xml");
-		assertNotNull(rule);
-		
-		List<AclAction> actions = rule.getActions();
-		assertNotNull(actions);
-		assertEquals(1, actions.size());
-		
-		AclAction action = actions.get(0);
-		assertEquals(AclAction.PERMISSION_GRANT, action.getPermission());
-		assertEquals(AclAction.ACTION_VIEW, action.getName());
-		
-		List<AclSubject> subjects = rule.getSubjects();
-		assertNotNull(subjects);
-		assertEquals(1, subjects.size());
-		
-		AclSubject subject = subjects.get(0);
-		assertEquals(AclSubject.EVERYONE, subject.getType());
-	}
+    @Before
+    public void setUp() throws Exception {
+        aclDomReader = new DefaultAclDomReader() {
 
-	protected AclRule readRule(String path) throws DocumentException {
-		org.w3c.dom.Document document = readDocument(path);
+            @Override
+            protected AclFactory getAclFactory() {
+                return new DefaultAclFactory();
+            }
+
+        };
+    }
+
+    @Test
+    public void testLoadXml() throws DocumentException {
+        AclRule rule = readRule("acl-rule.xml");
+        assertNotNull(rule);
+
+        List<AclAction> actions = rule.getActions();
+        assertNotNull(actions);
+        assertEquals(1, actions.size());
+
+        AclAction action = actions.get(0);
+        assertEquals(AclAction.PERMISSION_GRANT, action.getPermission());
+        assertEquals(AclAction.ACTION_VIEW, action.getName());
+
+        List<AclSubject> subjects = rule.getSubjects();
+        assertNotNull(subjects);
+        assertEquals(1, subjects.size());
+
+        AclSubject subject = subjects.get(0);
+        assertEquals(AclSubject.EVERYONE, subject.getType());
+    }
+
+    protected AclRule readRule(String path) throws DocumentException {
+        org.w3c.dom.Document document = readDocument(path);
         Element root = (Element) document.getFirstChild();
-        
+
         assertEquals(root.getNodeName(), "acl-rule");
         assertEquals(root.getNamespaceURI(), "http://onesocialweb.org/spec/1.0/");
-        
+
         return aclDomReader.readRule(root);
-	}
-	
-	protected org.w3c.dom.Document readDocument(String path) throws DocumentException {
+    }
+
+    protected org.w3c.dom.Document readDocument(String path) throws DocumentException {
         SAXReader reader = new SAXReader();
         Document document = reader.read(getClass().getClassLoader().getResourceAsStream(path));
         DOMWriter writer = new DOMWriter();
-        return writer.write(document);		
-	}
-
+        return writer.write(document);
+    }
 }

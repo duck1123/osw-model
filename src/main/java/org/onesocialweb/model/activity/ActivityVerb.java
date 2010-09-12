@@ -12,16 +12,15 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.activity;
 
 public interface ActivityVerb {
-	
-	public static final String POST = "http://activitystrea.ms/schema/1.0/post";
 
-	public String getValue();
+    public static final String POST = "http://activitystrea.ms/schema/1.0/post";
 
-	public void setValue(String verb);
+    public String getValue();
 
+    public void setValue(String verb);
 }

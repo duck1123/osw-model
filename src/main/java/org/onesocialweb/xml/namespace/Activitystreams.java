@@ -12,20 +12,19 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.xml.namespace;
 
 public class Activitystreams {
 
-	public static final String NAMESPACE = "http://activitystrea.ms/spec/1.0/";
+    public static final String NAMESPACE = "http://activitystrea.ms/spec/1.0/";
 
-	public static final String VERB_ELEMENT = "verb";
+    public static final String VERB_ELEMENT = "verb";
 
-	public static final String OBJECT_ELEMENT = "object";
+    public static final String OBJECT_ELEMENT = "object";
 
-	public static final String ACTOR_ELEMENT = "actor";
+    public static final String ACTOR_ELEMENT = "actor";
 
-	public static final String OBJECT_TYPE_ELEMENT = "object-type";
-
+    public static final String OBJECT_TYPE_ELEMENT = "object-type";
 }

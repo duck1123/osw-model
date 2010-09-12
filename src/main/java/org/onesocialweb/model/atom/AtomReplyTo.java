@@ -12,34 +12,33 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
 public interface AtomReplyTo {
-	
-	public String getRef();
-	
-	public String getHref();
-	
-	public String getType();
-	
-	public String getSource();
-	
-	public void setRef(String ref);
-	
-	public void setHref(String href);
-	
-	public void setType(String type);
-	
-	public void setSource(String source);
-	
-	public boolean hasRef();
-	
-	public boolean hasHref();
-	
-	public boolean hasType();
-	
-	public boolean hasSource();
 
+    public String getRef();
+
+    public String getHref();
+
+    public String getType();
+
+    public String getSource();
+
+    public void setRef(String ref);
+
+    public void setHref(String href);
+
+    public void setType(String type);
+
+    public void setSource(String source);
+
+    public boolean hasRef();
+
+    public boolean hasHref();
+
+    public boolean hasType();
+
+    public boolean hasSource();
 }

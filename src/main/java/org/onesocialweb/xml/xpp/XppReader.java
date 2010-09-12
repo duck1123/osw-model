@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.xml.xpp;
 
@@ -22,6 +22,6 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 public interface XppReader<T> {
-	
-	public T parse(XmlPullParser parser) throws XmlPullParserException, IOException;
+
+    public T parse(XmlPullParser parser) throws XmlPullParserException, IOException;
 }

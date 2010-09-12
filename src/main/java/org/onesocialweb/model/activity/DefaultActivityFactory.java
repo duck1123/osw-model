@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.activity;
 
@@ -20,24 +20,23 @@ package org.onesocialweb.model.activity;
 
 public class DefaultActivityFactory extends ActivityFactory {
 
-	@Override
-	public ActivityActor actor() {
-		return new DefaultActivityActor();
-	}
+    @Override
+    public ActivityActor actor() {
+        return new DefaultActivityActor();
+    }
 
-	@Override
-	public ActivityEntry entry() {
-		return new DefaultActivityEntry();
-	}
+    @Override
+    public ActivityEntry entry() {
+        return new DefaultActivityEntry();
+    }
 
-	@Override
-	public ActivityObject object() {
-		return new DefaultActivityObject();
-	}
+    @Override
+    public ActivityObject object() {
+        return new DefaultActivityObject();
+    }
 
-	@Override
-	public ActivityVerb verb() {
-		return new DefaultActivityVerb();
-	}
-
+    @Override
+    public ActivityVerb verb() {
+        return new DefaultActivityVerb();
+    }
 }

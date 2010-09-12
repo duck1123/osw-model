@@ -34,153 +34,152 @@ import org.w3c.dom.NodeList;
 
 public abstract class ActivityDomReader {
 
-	private final ActivityFactory factory;
+    private final ActivityFactory factory;
 
-	private final AclDomReader aclDomReader;
+    private final AclDomReader aclDomReader;
 
-	private final AtomDomReader atomDomReader;
+    private final AtomDomReader atomDomReader;
 
-	public ActivityDomReader() {
-		this.factory = getActivityFactory();
-		this.aclDomReader = getAclDomReader();
-		this.atomDomReader = getAtomDomReader();
-	}
+    public ActivityDomReader() {
+        this.factory = getActivityFactory();
+        this.aclDomReader = getAclDomReader();
+        this.atomDomReader = getAtomDomReader();
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see
-	 * org.onesocialweb.model.activity.ActivityDomReader#readEntry(org.w3c.dom
-	 * .Element)
-	 */
-	public ActivityEntry readEntry(Element element) {
-		ActivityEntry entry = factory.entry();
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.onesocialweb.model.activity.ActivityDomReader#readEntry(org.w3c.dom
+     * .Element)
+     */
+    public ActivityEntry readEntry(Element element) {
+        ActivityEntry entry = factory.entry();
 
-		// The atom stuff
-		entry.setId(DomHelper.getElementText(element, "id", Atom.NAMESPACE));
-		entry.setTitle(DomHelper.getElementText(element, "title", Atom.NAMESPACE));
-		entry.setPublished(parseDate(DomHelper.getElementText(element, "published", Atom.NAMESPACE)));
-		entry.setUpdated(parseDate(DomHelper.getElementText(element, "updated", Atom.NAMESPACE)));
+        // The atom stuff
+        entry.setId(DomHelper.getElementText(element, "id", Atom.NAMESPACE));
+        entry.setTitle(DomHelper.getElementText(element, "title", Atom.NAMESPACE));
+        entry.setPublished(parseDate(DomHelper.getElementText(element, "published", Atom.NAMESPACE)));
+        entry.setUpdated(parseDate(DomHelper.getElementText(element, "updated", Atom.NAMESPACE)));
 
-		// Get the actor (ignore if more than one)
-		Element actor = DomHelper.getElement(element, "actor", Activitystreams.NAMESPACE);
-		if (actor != null) {
-			entry.setActor(readActor(actor));
-		}
+        // Get the actor (ignore if more than one)
+        Element actor = DomHelper.getElement(element, "actor", Activitystreams.NAMESPACE);
+        if (actor != null) {
+            entry.setActor(readActor(actor));
+        }
 
-		// Get the verbs
-		NodeList verbs = element.getElementsByTagNameNS(Activitystreams.NAMESPACE, "verb");
-		for (int i = 0; i < verbs.getLength(); i++) {
-			entry.addVerb(readVerb((Element) verbs.item(i)));
-		}
+        // Get the verbs
+        NodeList verbs = element.getElementsByTagNameNS(Activitystreams.NAMESPACE, "verb");
+        for (int i = 0; i < verbs.getLength(); i++) {
+            entry.addVerb(readVerb((Element) verbs.item(i)));
+        }
 
-		// Get the objects
-		NodeList objects = element.getElementsByTagNameNS(Activitystreams.NAMESPACE, "object");
-		for (int i = 0; i < objects.getLength(); i++) {
-			entry.addObject(readObject((Element) objects.item(i)));
-		}
+        // Get the objects
+        NodeList objects = element.getElementsByTagNameNS(Activitystreams.NAMESPACE, "object");
+        for (int i = 0; i < objects.getLength(); i++) {
+            entry.addObject(readObject((Element) objects.item(i)));
+        }
 
-		// Get the acl rules
-		NodeList rules = element.getElementsByTagNameNS(Onesocialweb.NAMESPACE, "acl-rule");
-		for (int i = 0; i < rules.getLength(); i++) {
-			entry.addAclRule(aclDomReader.readRule((Element) rules.item(i)));
-		}
+        // Get the acl rules
+        NodeList rules = element.getElementsByTagNameNS(Onesocialweb.NAMESPACE, "acl-rule");
+        for (int i = 0; i < rules.getLength(); i++) {
+            entry.addAclRule(aclDomReader.readRule((Element) rules.item(i)));
+        }
 
-		// Get the reply-to
-		NodeList replies = element.getElementsByTagNameNS(AtomThreading.NAMESPACE, AtomThreading.IN_REPLY_TO_ELEMENT);
-		for(int i=0; i < replies.getLength(); i++) {
-			AtomReplyTo replyTo= atomDomReader.readReplyTo((Element) replies.item(i));
-			if (replyTo.getHref()!=null){
-				entry.setParentId(readParentId(replyTo.getHref()));
-				entry.setParentJID(readParentJID(replyTo.getHref()));
-			}
-			entry.addRecipient(replyTo);
-		}
+        // Get the reply-to
+        NodeList replies = element.getElementsByTagNameNS(AtomThreading.NAMESPACE, AtomThreading.IN_REPLY_TO_ELEMENT);
+        for(int i=0; i < replies.getLength(); i++) {
+            AtomReplyTo replyTo= atomDomReader.readReplyTo((Element) replies.item(i));
+            if (replyTo.getHref()!=null){
+                entry.setParentId(readParentId(replyTo.getHref()));
+                entry.setParentJID(readParentJID(replyTo.getHref()));
+            }
+            entry.addRecipient(replyTo);
+        }
 
-		//Get the links...
-		NodeList links = element.getElementsByTagNameNS(Atom.NAMESPACE, Atom.LINK_ELEMENT);
-		for(int i=0; i < links.getLength(); i++) {
-			AtomLink link= atomDomReader.readLink(((Element) links.item(i)));
-			entry.addLink(link);
-		}
+        //Get the links...
+        NodeList links = element.getElementsByTagNameNS(Atom.NAMESPACE, Atom.LINK_ELEMENT);
+        for(int i=0; i < links.getLength(); i++) {
+            AtomLink link= atomDomReader.readLink(((Element) links.item(i)));
+            entry.addLink(link);
+        }
 
 
-		return entry;
-	}
+        return entry;
+    }
 
-	public String readParentJID(String href)
-	{
-		if (href.length() == 0)
-			return null;
-		int i=href.indexOf("?");
-		if(i == -1) {
-			return null;
-		}
-		return href.substring(5, i);
+    public String readParentJID(String href)
+    {
+        if (href.length() == 0)
+            return null;
+        int i=href.indexOf("?");
+        if(i == -1) {
+            return null;
+        }
+        return href.substring(5, i);
+    }
 
-	}
+    public String readParentId(String href)
+    {
+        if (href.length() == 0)
+            return null;
+        int i=href.indexOf("item=");
+        if(i == -1) {
+            return null;
+        }
+        return href.substring(5+i, href.length());
 
-	public String readParentId(String href)
-	{
-		if (href.length() == 0)
-			return null;
-		int i=href.indexOf("item=");
-		if(i == -1) {
-			return null;
-		}
-		return href.substring(5+i, href.length());
+    }
 
-	}
+    public String readActivityId(Element element) {
+        return DomHelper.getElementAttribute(element, "id");
 
-	public String readActivityId(Element element) {
-		return DomHelper.getElementAttribute(element, "id");
+    }
 
-	}
+    protected ActivityActor readActor(Element element) {
+        ActivityActor actor = factory.actor();
+        actor.setUri(DomHelper.getElementText(element, "uri", Atom.NAMESPACE));
+        actor.setName(DomHelper.getElementText(element, "name", Atom.NAMESPACE));
+        actor.setEmail(DomHelper.getElementText(element, "email", Atom.NAMESPACE));
+        return actor;
+    }
 
-	protected ActivityActor readActor(Element element) {
-		ActivityActor actor = factory.actor();
-		actor.setUri(DomHelper.getElementText(element, "uri", Atom.NAMESPACE));
-		actor.setName(DomHelper.getElementText(element, "name", Atom.NAMESPACE));
-		actor.setEmail(DomHelper.getElementText(element, "email", Atom.NAMESPACE));
-		return actor;
-	}
+    protected ActivityVerb readVerb(Element element) {
+        ActivityVerb verb = factory.verb();
+        verb.setValue(element.getTextContent().trim());
+        return verb;
+    }
 
-	protected ActivityVerb readVerb(Element element) {
-		ActivityVerb verb = factory.verb();
-		verb.setValue(element.getTextContent().trim());
-		return verb;
-	}
+    protected ActivityObject readObject(Element element) {
+        ActivityObject object = factory.object();
 
-	protected ActivityObject readObject(Element element) {
-		ActivityObject object = factory.object();
+        object.setId(DomHelper.getElementText(element, "id", Atom.NAMESPACE));
+        object.setType(DomHelper.getElementText(element, "object-type", Activitystreams.NAMESPACE));
+        object.setTitle(DomHelper.getElementText(element, "title", Atom.NAMESPACE));
+        object.setPublished(parseDate(DomHelper.getElementText(element, "published", Atom.NAMESPACE)));
+        object.setUpdated(parseDate(DomHelper.getElementText(element, "updated", Atom.NAMESPACE)));
 
-		object.setId(DomHelper.getElementText(element, "id", Atom.NAMESPACE));
-		object.setType(DomHelper.getElementText(element, "object-type", Activitystreams.NAMESPACE));
-		object.setTitle(DomHelper.getElementText(element, "title", Atom.NAMESPACE));
-		object.setPublished(parseDate(DomHelper.getElementText(element, "published", Atom.NAMESPACE)));
-		object.setUpdated(parseDate(DomHelper.getElementText(element, "updated", Atom.NAMESPACE)));
+        // content
+        NodeList contents = element.getElementsByTagNameNS(Atom.NAMESPACE, "content");
+        for (int i = 0; i < contents.getLength(); i++) {
+            object.addContent(atomDomReader.readContent((Element) contents.item(i)));
+        }
 
-		// content
-		NodeList contents = element.getElementsByTagNameNS(Atom.NAMESPACE, "content");
-		for (int i = 0; i < contents.getLength(); i++) {
-			object.addContent(atomDomReader.readContent((Element) contents.item(i)));
-		}
+        // links
+        NodeList links = element.getElementsByTagNameNS(Atom.NAMESPACE, "link");
+        for (int i = 0; i < links.getLength(); i++) {
+            object.addLink(atomDomReader.readLink((Element) links.item(i)));
+        }
 
-		// links
-		NodeList links = element.getElementsByTagNameNS(Atom.NAMESPACE, "link");
-		for (int i = 0; i < links.getLength(); i++) {
-			object.addLink(atomDomReader.readLink((Element) links.item(i)));
-		}
+        return object;
+    }
 
-		return object;
-	}
+    protected abstract ActivityFactory getActivityFactory();
 
-	protected abstract ActivityFactory getActivityFactory();
+    protected abstract AclDomReader getAclDomReader();
 
-	protected abstract AclDomReader getAclDomReader();
+    protected abstract AtomDomReader getAtomDomReader();
 
-	protected abstract AtomDomReader getAtomDomReader();
-
-	protected abstract Date parseDate(String atomDate);
+    protected abstract Date parseDate(String atomDate);
 
 }

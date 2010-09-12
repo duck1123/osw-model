@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.acl;
 
@@ -32,22 +32,22 @@ import org.w3c.dom.Element;
 
 public class AclDomWriterTest {
 
-	@Test
-	public void ruleToXML() throws DocumentException, IOException {
-		AclFactory factory = new DefaultAclFactory();
-		AclRule rule = factory.aclRule();
-		rule.addAction(factory.aclAction(AclAction.ACTION_VIEW, AclAction.PERMISSION_GRANT));
-		rule.addSubject(factory.aclSubject("Friends", AclSubject.GROUP));
-		
-		AclDomWriter aclDomWriter = new DefaultAclDomWriter();
-		DOMDocument document = new DOMDocument();
-		Element element = aclDomWriter.toElement(rule, document);
-		assertNotNull(element);
-		
-		DOMReader reader = new DOMReader();
-		
+    @Test
+    public void ruleToXML() throws DocumentException, IOException {
+        AclFactory factory = new DefaultAclFactory();
+        AclRule rule = factory.aclRule();
+        rule.addAction(factory.aclAction(AclAction.ACTION_VIEW, AclAction.PERMISSION_GRANT));
+        rule.addSubject(factory.aclSubject("Friends", AclSubject.GROUP));
+
+        AclDomWriter aclDomWriter = new DefaultAclDomWriter();
+        DOMDocument document = new DOMDocument();
+        Element element = aclDomWriter.toElement(rule, document);
+        assertNotNull(element);
+
+        DOMReader reader = new DOMReader();
+
         OutputFormat format = OutputFormat.createPrettyPrint();
         XMLWriter xmlWriter = new XMLWriter( System.out, format );
         xmlWriter.write(reader.read(document));
-	}
+    }
 }

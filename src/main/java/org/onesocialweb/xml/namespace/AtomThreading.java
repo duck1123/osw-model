@@ -12,24 +12,23 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.xml.namespace;
 
 public class AtomThreading {
 
-	public static final String NAMESPACE = "http://purl.org/syndication/thread/1.0";
-	
-	public static final String IN_REPLY_TO_ELEMENT = "in-reply-to";
-	
-	public static final String HREF_ATTRIBUTE = "href";
-	
-	public static final String REF_ATTRIBUTE = "ref";
-	
-	public static final String TYPE_ATTRIBUTE = "type";
-	
-	public static final String SOURCE_ATTRIBUTE = "source";
-	
-	public static final String COUNT="thr:count";
-	
+    public static final String NAMESPACE = "http://purl.org/syndication/thread/1.0";
+
+    public static final String IN_REPLY_TO_ELEMENT = "in-reply-to";
+
+    public static final String HREF_ATTRIBUTE = "href";
+
+    public static final String REF_ATTRIBUTE = "ref";
+
+    public static final String TYPE_ATTRIBUTE = "type";
+
+    public static final String SOURCE_ATTRIBUTE = "source";
+
+    public static final String COUNT="thr:count";
 }

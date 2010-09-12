@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.xml.xpp.imp;
 
@@ -27,24 +27,24 @@ import org.onesocialweb.xml.xpp.XppAclReader;
 import org.onesocialweb.xml.xpp.XppActivityReader;
 
 public class DefaultXppActivityReader extends XppActivityReader {
-	
-	@Override
-	protected ActivityFactory getActivityFactory() {
-		return new DefaultActivityFactory();
-	}
-	
-	@Override
-	protected AtomFactory getAtomFactory() {
-		return new DefaultAtomFactory();
-	}
-	
-	@Override
-	protected Date parseDate(String atomDate) {
-		return DefaultAtomHelper.parseDate(atomDate);
-	}
 
-	@Override
-	protected XppAclReader getXppAclReader() {
-		return new DefaultXppAclReader();
-	}
+    @Override
+    protected ActivityFactory getActivityFactory() {
+        return new DefaultActivityFactory();
+    }
+
+    @Override
+    protected AtomFactory getAtomFactory() {
+        return new DefaultAtomFactory();
+    }
+
+    @Override
+    protected Date parseDate(String atomDate) {
+        return DefaultAtomHelper.parseDate(atomDate);
+    }
+
+    @Override
+    protected XppAclReader getXppAclReader() {
+        return new DefaultXppAclReader();
+    }
 }

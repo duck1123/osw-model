@@ -12,79 +12,79 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
-public class DefaultAtomContent extends DefaultAtomCommon implements AtomContent {
+public class DefaultAtomContent extends DefaultAtomCommon
+    implements AtomContent {
 
-	private String src;
+    private String src;
 
-	private String type;
+    private String type;
 
-	private String value;
+    private String value;
 
-	@Override
-	public String getSrc() {
-		return src;
-	}
+    @Override
+    public String getSrc() {
+        return src;
+    }
 
-	@Override
-	public String getType() {
-		return type;
-	}
+    @Override
+    public String getType() {
+        return type;
+    }
 
-	@Override
-	public String getValue() {
-		return value;
-	}
+    @Override
+    public String getValue() {
+        return value;
+    }
 
-	@Override
-	public void setSrc(final String src) {
-		this.src = src;
-	}
+    @Override
+    public void setSrc(final String src) {
+        this.src = src;
+    }
 
-	@Override
-	public void setType(final String type) {
-		this.type = type;
-	}
+    @Override
+    public void setType(final String type) {
+        this.type = type;
+    }
 
-	@Override
-	public void setValue(final String value) {
-		this.value = value;
-	}
+    @Override
+    public void setValue(final String value) {
+        this.value = value;
+    }
 
-	@Override
-	public String toString() {
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("[AtomContent ");
-		if (type != null) {
-			buffer.append("type:" + type + " ");
-		}
-		if (src != null) {
-			buffer.append("src:" + src + " ");
-		}
-		if (value != null) {
-			buffer.append("value:" + value + " ");
-		}
-		buffer.append("]");
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("[AtomContent ");
+        if (type != null) {
+            buffer.append("type:" + type + " ");
+        }
+        if (src != null) {
+            buffer.append("src:" + src + " ");
+        }
+        if (value != null) {
+            buffer.append("value:" + value + " ");
+        }
+        buffer.append("]");
 
-		return buffer.toString();
-	}
+        return buffer.toString();
+    }
 
-	@Override
-	public boolean hasSrc() {
-		return (src != null);
-	}
+    @Override
+    public boolean hasSrc() {
+        return (src != null);
+    }
 
-	@Override
-	public boolean hasType() {
-		return (type != null);
-	}
+    @Override
+    public boolean hasType() {
+        return (type != null);
+    }
 
-	@Override
-	public boolean hasValue() {
-		return (value != null);
-	}
-
+    @Override
+    public boolean hasValue() {
+        return (value != null);
+    }
 }

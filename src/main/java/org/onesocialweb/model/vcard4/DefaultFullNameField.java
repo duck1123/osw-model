@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 
 package org.onesocialweb.model.vcard4;
@@ -25,46 +25,45 @@ import org.onesocialweb.model.acl.AclRule;
 
 public class DefaultFullNameField extends FullNameField {
 
-	private List<AclRule> rules = new ArrayList<AclRule>();
-	
-	private String fullName;
-	
-	@Override
-	public String getFullName() {
-		return fullName;
-	}
+    private List<AclRule> rules = new ArrayList<AclRule>();
 
-	@Override
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+    private String fullName;
 
-	@Override
-	public void addAclRule(AclRule rule) {
-		rules.add(rule);
-	}
+    @Override
+    public String getFullName() {
+        return fullName;
+    }
 
-	@Override
-	public List<AclRule> getAclRules() {
-		return Collections.unmodifiableList(rules);
-	}
+    @Override
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-	@Override
-	public void removeAclRule(AclRule rule) {
-		rules.remove(rule);
-	}
+    @Override
+    public void addAclRule(AclRule rule) {
+        rules.add(rule);
+    }
 
-	@Override
-	public void setAclRules(List<AclRule> rules) {
-		this.rules = rules;
-	}	
+    @Override
+    public List<AclRule> getAclRules() {
+        return Collections.unmodifiableList(rules);
+    }
 
-	@Override
-	public boolean hasAclRules() {
-		if (rules != null && rules.size() > 0) {
-			return true;
-		}
-		return false;
-	}
-	
+    @Override
+    public void removeAclRule(AclRule rule) {
+        rules.remove(rule);
+    }
+
+    @Override
+    public void setAclRules(List<AclRule> rules) {
+        this.rules = rules;
+    }
+
+    @Override
+    public boolean hasAclRules() {
+        if (rules != null && rules.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 }

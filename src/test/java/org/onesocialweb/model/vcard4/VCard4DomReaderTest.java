@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.vcard4;
 
@@ -33,42 +33,41 @@ import org.w3c.dom.NodeList;
 
 public class VCard4DomReaderTest {
 
-	private VCard4DomReader vcard4DomReader;
+    private VCard4DomReader vcard4DomReader;
 
-	@Before
-	public void setUp() throws Exception {
-		vcard4DomReader = new DefaultVCard4DomReader();
-	}
-	
-	@Test
-	public void testLoadProfile() throws DocumentException {
-		Profile profile = readProfile("vcard4.xml");
-		assertNotNull(profile);
-		
-		// Add a fictive user id
-		profile.setUserId("alice@wonderland.it");
-		
-		System.out.println(profile);
-	}
-	
-	protected Profile readProfile(String path) throws DocumentException {
-		org.w3c.dom.Document document = readDocument(path);
+    @Before
+    public void setUp() throws Exception {
+        vcard4DomReader = new DefaultVCard4DomReader();
+    }
+
+    @Test
+    public void testLoadProfile() throws DocumentException {
+        Profile profile = readProfile("vcard4.xml");
+        assertNotNull(profile);
+
+        // Add a fictive user id
+        profile.setUserId("alice@wonderland.it");
+
+        System.out.println(profile);
+    }
+
+    protected Profile readProfile(String path) throws DocumentException {
+        org.w3c.dom.Document document = readDocument(path);
         Element root = (Element) document.getFirstChild();
-        
+
         assertEquals("vcards", root.getNodeName());
         assertEquals(VCard4.NAMESPACE, root.getNamespaceURI());
-        
+
         NodeList vcardNodes = root.getElementsByTagName(VCard4.VCARD_ELEMENT);
         assert(vcardNodes.getLength() > 0);
-                
-        return vcard4DomReader.readProfile((Element) vcardNodes.item(0));
-	}
-	
-	protected org.w3c.dom.Document readDocument(String path) throws DocumentException{
-        SAXReader reader = new SAXReader();
-        Document document = reader.read(getClass().getClassLoader().getResourceAsStream(path));       
-        DOMWriter	writer = new DOMWriter();            	       
-        return writer.write(document);	
-	}
 
+        return vcard4DomReader.readProfile((Element) vcardNodes.item(0));
+    }
+
+    protected org.w3c.dom.Document readDocument(String path) throws DocumentException{
+        SAXReader reader = new SAXReader();
+        Document document = reader.read(getClass().getClassLoader().getResourceAsStream(path));
+        DOMWriter    writer = new DOMWriter();
+        return writer.write(document);
+    }
 }

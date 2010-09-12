@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.relation;
 
@@ -31,35 +31,35 @@ import org.onesocialweb.xml.namespace.Onesocialweb;
 
 public class RelationDomReaderTest {
 
-	private RelationDomReader relationDomReader;
+    private RelationDomReader relationDomReader;
 
-	@Before
-	public void setUp() throws Exception {
-		relationDomReader = new DefaultRelationDomReader();
-	}
-	
-	@Test
-	public void testLoadXml() throws DocumentException {
-		Relation relation = readEntry("relation.xml");
-		assertNotNull(relation);
-		System.out.println(relation);
-	}
-	
-	protected Relation readEntry(String path) throws DocumentException {
-		org.w3c.dom.Element root = readDocument(path);
-        
+    @Before
+    public void setUp() throws Exception {
+        relationDomReader = new DefaultRelationDomReader();
+    }
+
+    @Test
+    public void testLoadXml() throws DocumentException {
+        Relation relation = readEntry("relation.xml");
+        assertNotNull(relation);
+        System.out.println(relation);
+    }
+
+    protected Relation readEntry(String path) throws DocumentException {
+        org.w3c.dom.Element root = readDocument(path);
+
         assertEquals(Onesocialweb.RELATION_ELEMENT, root.getNodeName());
         assertEquals(Onesocialweb.NAMESPACE, root.getNamespaceURI());
-        
+
         Relation relation = relationDomReader.readElement(root);
         assertNotNull(relation);
-        
+
         return relation;
-	}
-	
-	protected org.w3c.dom.Element readDocument(String path) throws DocumentException {
+    }
+
+    protected org.w3c.dom.Element readDocument(String path) throws DocumentException {
         SAXReader reader = new SAXReader();
         Document document = reader.read(getClass().getClassLoader().getResourceAsStream(path));
         return new ElementAdapter(document.getRootElement());
-	}
+    }
 }

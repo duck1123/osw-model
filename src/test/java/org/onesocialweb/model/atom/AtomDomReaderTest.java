@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
@@ -30,35 +30,34 @@ import org.w3c.dom.Element;
 
 public class AtomDomReaderTest {
 
-	private DefaultAtomDomReader atomDomReader;
+    private DefaultAtomDomReader atomDomReader;
 
-	@Before
-	public void setUp() throws Exception {
-		atomDomReader = new DefaultAtomDomReader();
-	}
-	
-	@Test
-	public void testLink() throws DocumentException {
-		AtomEntry entry = readEntry("atom-link.xml");
-		assertNotNull(entry);
-		System.out.println(entry);
-	}
-	
-	protected AtomEntry readEntry(String path) throws DocumentException {
-		org.w3c.dom.Document document = readDocument(path);
+    @Before
+    public void setUp() throws Exception {
+        atomDomReader = new DefaultAtomDomReader();
+    }
+
+    @Test
+    public void testLink() throws DocumentException {
+        AtomEntry entry = readEntry("atom-link.xml");
+        assertNotNull(entry);
+        System.out.println(entry);
+    }
+
+    protected AtomEntry readEntry(String path) throws DocumentException {
+        org.w3c.dom.Document document = readDocument(path);
         Element root = (Element) document.getFirstChild();
-        
+
         assertEquals(root.getNodeName(), "entry");
         assertEquals(root.getNamespaceURI(), "http://www.w3.org/2005/Atom");
-        
+
         return atomDomReader.readEntry(root);
-	}
-	
-	protected org.w3c.dom.Document readDocument(String path) throws DocumentException {
+    }
+
+    protected org.w3c.dom.Document readDocument(String path) throws DocumentException {
         SAXReader reader = new SAXReader();
         Document document = reader.read(getClass().getClassLoader().getResourceAsStream(path));
         DOMWriter writer = new DOMWriter();
-        return writer.write(document);		
-	}
-
+        return writer.write(document);
+    }
 }

@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 
 package org.onesocialweb.model.vcard4;
@@ -25,45 +25,45 @@ import org.onesocialweb.model.acl.AclRule;
 
 public class DefaultNoteField extends NoteField {
 
-	private List<AclRule> rules = new ArrayList<AclRule>();
-	
-	private String note;
-	
-	@Override
-	public String getNote() {
-		return note;
-	}
+    private List<AclRule> rules = new ArrayList<AclRule>();
 
-	@Override
-	public void setNote(String note) {
-		this.note = note;
-	}
-	
-	@Override
-	public void addAclRule(AclRule rule) {
-		rules.add(rule);
-	}
+    private String note;
 
-	@Override
-	public List<AclRule> getAclRules() {
-		return Collections.unmodifiableList(rules);
-	}
+    @Override
+    public String getNote() {
+        return note;
+    }
 
-	@Override
-	public void removeAclRule(AclRule rule) {
-		rules.remove(rule);
-	}
+    @Override
+    public void setNote(String note) {
+        this.note = note;
+    }
 
-	@Override
-	public void setAclRules(List<AclRule> rules) {
-		this.rules = rules;
-	}
-	
-	@Override
-	public boolean hasAclRules() {
-		if (rules != null && rules.size() > 0) {
-			return true;
-		}
-		return false;
-	}
+    @Override
+    public void addAclRule(AclRule rule) {
+        rules.add(rule);
+    }
+
+    @Override
+    public List<AclRule> getAclRules() {
+        return Collections.unmodifiableList(rules);
+    }
+
+    @Override
+    public void removeAclRule(AclRule rule) {
+        rules.remove(rule);
+    }
+
+    @Override
+    public void setAclRules(List<AclRule> rules) {
+        this.rules = rules;
+    }
+
+    @Override
+    public boolean hasAclRules() {
+        if (rules != null && rules.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 }

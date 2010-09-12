@@ -12,32 +12,31 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 
 package org.onesocialweb.model.vcard4;
 
 public abstract class PhotoField extends Field {
 
-	public static final String NAME = "photo";
-	
-	@Override
-	public String getName() {
-		return NAME;
-	}
-	
-	@Override
-	public String getValue() {
-		return getUri();
-	}
-	
-	@Override
-	public boolean isValid() {
-		return true;
-	}
-	
-	public abstract String getUri();
-	
-	public abstract void setUri(String uri);
+    public static final String NAME = "photo";
 
+    @Override
+    public String getName() {
+        return NAME;
+    }
+
+    @Override
+    public String getValue() {
+        return getUri();
+    }
+
+    @Override
+    public boolean isValid() {
+        return true;
+    }
+
+    public abstract String getUri();
+
+    public abstract void setUri(String uri);
 }

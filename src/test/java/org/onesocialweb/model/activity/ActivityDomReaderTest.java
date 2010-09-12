@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.activity;
 
@@ -30,32 +30,32 @@ import org.onesocialweb.xml.dom4j.ElementAdapter;
 
 public class ActivityDomReaderTest {
 
-	private ActivityDomReader activityDomReader;
+    private ActivityDomReader activityDomReader;
 
-	@Before
-	public void setUp() throws Exception {
-		activityDomReader = new DefaultActivityDomReader();
-	}
-	
-	@Test
-	public void testLoadXml() throws DocumentException {
-		ActivityEntry entry = readEntry("activity-entry.xml");
-		assertNotNull(entry);
-		System.out.println(entry);
-	}
-	
-	protected ActivityEntry readEntry(String path) throws DocumentException {
-		org.w3c.dom.Element root = readDocument(path);
-        
+    @Before
+    public void setUp() throws Exception {
+        activityDomReader = new DefaultActivityDomReader();
+    }
+
+    @Test
+    public void testLoadXml() throws DocumentException {
+        ActivityEntry entry = readEntry("activity-entry.xml");
+        assertNotNull(entry);
+        System.out.println(entry);
+    }
+
+    protected ActivityEntry readEntry(String path) throws DocumentException {
+        org.w3c.dom.Element root = readDocument(path);
+
         assertEquals("entry", root.getNodeName());
         assertEquals("http://www.w3.org/2005/Atom", root.getNamespaceURI());
-        
+
         return activityDomReader.readEntry(root);
-	}
-	
-	protected org.w3c.dom.Element readDocument(String path) throws DocumentException {
+    }
+
+    protected org.w3c.dom.Element readDocument(String path) throws DocumentException {
         SAXReader reader = new SAXReader();
         Document document = reader.read(getClass().getClassLoader().getResourceAsStream(path));
         return new ElementAdapter(document.getRootElement());
-	}
+    }
 }

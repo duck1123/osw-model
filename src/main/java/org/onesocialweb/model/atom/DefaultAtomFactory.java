@@ -12,45 +12,44 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
 public class DefaultAtomFactory extends AtomFactory {
 
-	@Override
-	public AtomCategory category() {
-		return new DefaultAtomCategory();
-	}
+    @Override
+    public AtomCategory category() {
+        return new DefaultAtomCategory();
+    }
 
-	@Override
-	public AtomContent content() {
-		return new DefaultAtomContent();
-	}
+    @Override
+    public AtomContent content() {
+        return new DefaultAtomContent();
+    }
 
-	@Override
-	public AtomEntry entry() {
-		return new DefaultAtomEntry();
-	}
+    @Override
+    public AtomEntry entry() {
+        return new DefaultAtomEntry();
+    }
 
-	@Override
-	public AtomLink link() {
-		return new DefaultAtomLink();
-	}
+    @Override
+    public AtomLink link() {
+        return new DefaultAtomLink();
+    }
 
-	@Override
-	public AtomPerson person() {
-		return new DefaultAtomPerson();
-	}
+    @Override
+    public AtomPerson person() {
+        return new DefaultAtomPerson();
+    }
 
-	@Override
-	public AtomSource source() {
-		return new DefaultAtomSource();
-	}
+    @Override
+    public AtomSource source() {
+        return new DefaultAtomSource();
+    }
 
-	@Override
-	public AtomReplyTo reply() {
-		return new DefaultAtomReplyTo();
-	}
-
+    @Override
+    public AtomReplyTo reply() {
+        return new DefaultAtomReplyTo();
+    }
 }

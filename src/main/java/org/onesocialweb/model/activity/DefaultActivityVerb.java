@@ -12,34 +12,35 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.activity;
 
 import org.onesocialweb.model.atom.DefaultAtomCommon;
 
-public class DefaultActivityVerb extends DefaultAtomCommon implements ActivityVerb {
-	
-	private String verb;
-		
-	@Override
-	public String getValue() {
-		return verb;
-	}
+public class DefaultActivityVerb extends DefaultAtomCommon
+    implements ActivityVerb {
 
-	@Override
-	public void setValue(String verb) {
-		this.verb = verb;
-	}
-	
-	@Override
-	public String toString() {
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("[ActivityVerb ");
-		if (verb != null) {
-			buffer.append("verb:" + verb + " ");
-		}
-		buffer.append("]");
-		return buffer.toString();
-	}
+    private String verb;
+
+    @Override
+    public String getValue() {
+        return verb;
+    }
+
+    @Override
+    public void setValue(String verb) {
+        this.verb = verb;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("[ActivityVerb ");
+        if (verb != null) {
+            buffer.append("verb:" + verb + " ");
+        }
+        buffer.append("]");
+        return buffer.toString();
+    }
 }

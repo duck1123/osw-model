@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 
 package org.onesocialweb.model.vcard4;
@@ -21,36 +21,35 @@ import java.util.Date;
 
 public abstract class BirthdayField extends Field {
 
-	public enum Type {Date, DateTime, Time};
+    public enum Type {Date, DateTime, Time};
 
-	public static final String NAME = "bday";
-	
-	@Override
-	public String getName() {
-		return NAME;
-	}
+    public static final String NAME = "bday";
 
-	@Override 
-	public String getValue() {
-		return getBirthday();
-	}
-	
-	@Override
-	public boolean isValid() {
-		if (getType()==null)
-			return false;
-		else 
-			return true;
-	}
-	
-	public abstract void setBirthday(String value, Type type);
-	
-	public abstract String getBirthday();
-	
-	public abstract Type getType();
-	
-	public abstract Date getDate();
-	
-	public abstract void setDate(Date date);
+    @Override
+    public String getName() {
+        return NAME;
+    }
 
+    @Override
+    public String getValue() {
+        return getBirthday();
+    }
+
+    @Override
+    public boolean isValid() {
+        if (getType()==null)
+            return false;
+        else
+            return true;
+    }
+
+    public abstract void setBirthday(String value, Type type);
+
+    public abstract String getBirthday();
+
+    public abstract Type getType();
+
+    public abstract Date getDate();
+
+    public abstract void setDate(Date date);
 }

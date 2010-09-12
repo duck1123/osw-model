@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.activity;
 
@@ -44,57 +44,57 @@ import org.w3c.dom.Element;
 
 public class ActivityDomWriterTest {
 
-	@Test
-	public void entryToXML() throws DocumentException, IOException {
-		AtomFactory atomFactory = new DefaultAtomFactory();
-		ActivityFactory activityFactory = new DefaultActivityFactory();
-		AclFactory aclFactory = new DefaultAclFactory();
-		
-		ActivityEntry entry = activityFactory.entry();
-		entry.setId(DefaultAtomHelper.generateId());
-		entry.setPublished(Calendar.getInstance().getTime());
-		entry.setTitle("My first status update");
+    @Test
+    public void entryToXML() throws DocumentException, IOException {
+        AtomFactory atomFactory = new DefaultAtomFactory();
+        ActivityFactory activityFactory = new DefaultActivityFactory();
+        AclFactory aclFactory = new DefaultAclFactory();
 
-		ActivityActor author = activityFactory.actor();
-		author.setName("Alice & June");
-		author.setUri("eschnou@onesocial.me");
-		entry.setActor(author);
-		
-		ActivityObject object = activityFactory.object();
-		object.setTitle("My first <bold>status</bold> update");
-		object.setType(ActivityObject.STATUS_UPDATE);
-		entry.addObject(object);
-		
-		AtomContent content = atomFactory.content();
-		content.setType("text/html");
-		content.setValue("My first status update (in Html this time :-)");
-		object.addContent(content);
-		
-		AtomCategory category = atomFactory.category();
-		category.setLabel("Testcase");
-		category.setTerm("/test");
-		object.addCategory(category);
-		
-		AtomLink link = atomFactory.link();
-		link.setHref("http://eschnou.com");
-		link.setRel("me");
-		link.setTitle("My blog");
-		object.addLink(link);
-		
-		AclRule rule = aclFactory.aclRule();
-		rule.addAction(aclFactory.aclAction(AclAction.ACTION_VIEW, AclAction.PERMISSION_GRANT));
-		rule.addSubject(aclFactory.aclSubject(null, AclSubject.EVERYONE));
-		entry.addAclRule(rule);
-		
+        ActivityEntry entry = activityFactory.entry();
+        entry.setId(DefaultAtomHelper.generateId());
+        entry.setPublished(Calendar.getInstance().getTime());
+        entry.setTitle("My first status update");
 
-		DOMDocument document = new DOMDocument();
-		ActivityDomWriter activityDomWriter = new DefaultActivityDomWriter();
-		Element element = activityDomWriter.toElement(entry, document);
-		assertNotNull(element);
-		
-		DOMReader reader = new DOMReader();		
+        ActivityActor author = activityFactory.actor();
+        author.setName("Alice & June");
+        author.setUri("eschnou@onesocial.me");
+        entry.setActor(author);
+
+        ActivityObject object = activityFactory.object();
+        object.setTitle("My first <bold>status</bold> update");
+        object.setType(ActivityObject.STATUS_UPDATE);
+        entry.addObject(object);
+
+        AtomContent content = atomFactory.content();
+        content.setType("text/html");
+        content.setValue("My first status update (in Html this time :-)");
+        object.addContent(content);
+
+        AtomCategory category = atomFactory.category();
+        category.setLabel("Testcase");
+        category.setTerm("/test");
+        object.addCategory(category);
+
+        AtomLink link = atomFactory.link();
+        link.setHref("http://eschnou.com");
+        link.setRel("me");
+        link.setTitle("My blog");
+        object.addLink(link);
+
+        AclRule rule = aclFactory.aclRule();
+        rule.addAction(aclFactory.aclAction(AclAction.ACTION_VIEW,
+                                            AclAction.PERMISSION_GRANT));
+        rule.addSubject(aclFactory.aclSubject(null, AclSubject.EVERYONE));
+        entry.addAclRule(rule);
+
+        DOMDocument document = new DOMDocument();
+        ActivityDomWriter activityDomWriter = new DefaultActivityDomWriter();
+        Element element = activityDomWriter.toElement(entry, document);
+        assertNotNull(element);
+
+        DOMReader reader = new DOMReader();
         OutputFormat format = OutputFormat.createPrettyPrint();
         XMLWriter xmlWriter = new XMLWriter( System.out, format );
         xmlWriter.write(reader.read(document));
-	}
+    }
 }

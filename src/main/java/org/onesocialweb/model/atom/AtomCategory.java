@@ -12,28 +12,27 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.atom;
 
 public interface AtomCategory {
 
-	public String getLabel();
+    public String getLabel();
 
-	public String getScheme();
+    public String getScheme();
 
-	public String getTerm();
+    public String getTerm();
 
-	public void setLabel(final String label);
+    public void setLabel(final String label);
 
-	public void setScheme(final String scheme);
+    public void setScheme(final String scheme);
 
-	public void setTerm(final String term);
-	
-	public boolean hasLabel();
-	
-	public boolean hasScheme();
-	
-	public boolean hasTerm();
+    public void setTerm(final String term);
 
+    public boolean hasLabel();
+
+    public boolean hasScheme();
+
+    public boolean hasTerm();
 }

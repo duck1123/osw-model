@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.acl;
 
@@ -20,31 +20,30 @@ import java.util.List;
 
 public abstract class AclFactory {
 
-	public abstract AclAction aclAction();
-	
-	public abstract AclSubject aclSubject();
-	
-	public abstract AclRule aclRule();
-	
-	public AclAction aclAction(String name, String permission) {
-		AclAction action = aclAction();
-		action.setName(name);
-		action.setPermission(permission);
-		return action;
-	}
-	
-	public AclSubject aclSubject(String name, String type) {
-		AclSubject subject = aclSubject();
-		subject.setName(name);
-		subject.setType(type);
-		return subject;
-	}
-	
-	public AclRule aclRule(List<AclAction> actions, List<AclSubject> subjects) {
-		AclRule rule = aclRule();
-		rule.setActions(actions);
-		rule.setSubjects(subjects);
-		return rule;
-	}
-	
+    public abstract AclAction aclAction();
+
+    public abstract AclSubject aclSubject();
+
+    public abstract AclRule aclRule();
+
+    public AclAction aclAction(String name, String permission) {
+        AclAction action = aclAction();
+        action.setName(name);
+        action.setPermission(permission);
+        return action;
+    }
+
+    public AclSubject aclSubject(String name, String type) {
+        AclSubject subject = aclSubject();
+        subject.setName(name);
+        subject.setType(type);
+        return subject;
+    }
+
+    public AclRule aclRule(List<AclAction> actions, List<AclSubject> subjects) {
+        AclRule rule = aclRule();
+        rule.setActions(actions);
+        rule.setSubjects(subjects);
+        return rule;
+    }
 }

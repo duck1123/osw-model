@@ -12,7 +12,7 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *    
+ *
  */
 package org.onesocialweb.model.vcard4;
 
@@ -33,67 +33,65 @@ import org.onesocialweb.xml.writer.VCard4XmlWriter;
 
 public class VCard4XmlWriterTest {
 
-	@Test
-	public void entryToXML() throws DocumentException, IOException {
-		VCard4Factory profileFactory = new DefaultVCard4Factory();
-		AclFactory aclFactory = new DefaultAclFactory();
+    @Test
+    public void entryToXML() throws DocumentException, IOException {
+        VCard4Factory profileFactory = new DefaultVCard4Factory();
+        AclFactory aclFactory = new DefaultAclFactory();
 
-		List<AclRule> rules = new ArrayList<AclRule>();
-		AclRule rule = aclFactory.aclRule();
-		rule.addAction(aclFactory.aclAction(AclAction.ACTION_VIEW,
-				AclAction.PERMISSION_GRANT));
-		rule.addSubject(aclFactory.aclSubject(null, AclSubject.EVERYONE));
-		rules.add(rule);
+        List<AclRule> rules = new ArrayList<AclRule>();
+        AclRule rule = aclFactory.aclRule();
+        rule.addAction(aclFactory.aclAction(AclAction.ACTION_VIEW,
+                AclAction.PERMISSION_GRANT));
+        rule.addSubject(aclFactory.aclSubject(null, AclSubject.EVERYONE));
+        rules.add(rule);
 
-		Profile profile = profileFactory.profile();
-		profile.setUserId("test@xmpp.loc");
-		Field fnField = profileFactory.fullname("Alice in Wonderland");
-		fnField.setAclRules(rules);
-
-
-		Field sexField = profileFactory.gender(GenderField.Type.FEMALE);
-		sexField.setAclRules(rules);
+        Profile profile = profileFactory.profile();
+        profile.setUserId("test@xmpp.loc");
+        Field fnField = profileFactory.fullname("Alice in Wonderland");
+        fnField.setAclRules(rules);
 
 
-		Field noteField = profileFactory.note("Lost in a land of wonders");
-		noteField.setAclRules(rules);
+        Field sexField = profileFactory.gender(GenderField.Type.FEMALE);
+        sexField.setAclRules(rules);
 
-		Field photoField = profileFactory.photo("http://wonderland.lit/alice.jpg");
-		photoField.setAclRules(rules);
-		
-		Field nameField =profileFactory.name("Prof. Dr", "Otto", "Schumacher", "Jr.");
-		nameField.setAclRules(rules);
-		
-		Field emailField= profileFactory.email("daianacheng@gmail.com");
-		emailField.setAclRules(rules);
-		
-		Field telField=profileFactory.tel("+4917667027845");
-		telField.setAclRules(rules);
-		
-		Field tzField=profileFactory.timeZone("America/Miami");
-		tzField.setAclRules(rules);
-		
-		Field urlField=profileFactory.url("http://www.flickr.com/photos/dianacheng");
-		urlField.setAclRules(rules);
-		
-		try {
-			profile.addField(fnField);
-			profile.addField(sexField);
-			profile.addField(photoField);
-			profile.addField(noteField);
-			profile.addField(nameField);
-			profile.addField(emailField);
-			profile.addField(telField);
-			profile.addField(tzField);
-			profile.addField(urlField);
-		} catch (CardinalityException e) {
-		} catch (UnsupportedFieldException e) {	
-		}
-		
-		//Very simple stuff...
-		VCard4XmlWriter writer=new VCard4XmlWriter();
-		System.out.println(writer.toXml(profile));
 
-				
-	}
+        Field noteField = profileFactory.note("Lost in a land of wonders");
+        noteField.setAclRules(rules);
+
+        Field photoField = profileFactory.photo("http://wonderland.lit/alice.jpg");
+        photoField.setAclRules(rules);
+
+        Field nameField =profileFactory.name("Prof. Dr", "Otto", "Schumacher", "Jr.");
+        nameField.setAclRules(rules);
+
+        Field emailField= profileFactory.email("daianacheng@gmail.com");
+        emailField.setAclRules(rules);
+
+        Field telField=profileFactory.tel("+4917667027845");
+        telField.setAclRules(rules);
+
+        Field tzField=profileFactory.timeZone("America/Miami");
+        tzField.setAclRules(rules);
+
+        Field urlField=profileFactory.url("http://www.flickr.com/photos/dianacheng");
+        urlField.setAclRules(rules);
+
+        try {
+            profile.addField(fnField);
+            profile.addField(sexField);
+            profile.addField(photoField);
+            profile.addField(noteField);
+            profile.addField(nameField);
+            profile.addField(emailField);
+            profile.addField(telField);
+            profile.addField(tzField);
+            profile.addField(urlField);
+        } catch (CardinalityException e) {
+        } catch (UnsupportedFieldException e) {
+        }
+
+        //Very simple stuff...
+        VCard4XmlWriter writer=new VCard4XmlWriter();
+        System.out.println(writer.toXml(profile));
+    }
 }

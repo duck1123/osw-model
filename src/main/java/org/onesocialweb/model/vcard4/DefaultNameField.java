@@ -7,85 +7,82 @@ import java.util.List;
 import org.onesocialweb.model.acl.AclRule;
 
 public class DefaultNameField extends NameField {
-	
-	private List<AclRule> rules = new ArrayList<AclRule>();
 
-	private String surname;
-	
-	private String given;
-	
-	private String suffix;
-	
-	private String prefix;
-	
-	@Override
-	public String getSurname() {
-		return surname;
-	}
+    private List<AclRule> rules = new ArrayList<AclRule>();
 
-	@Override
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
+    private String surname;
 
-	@Override
-	public String getGiven() {
-		return given;
-	}
+    private String given;
 
-	@Override
-	public void setGiven(String given) {
-		this.given = given;
-	}
+    private String suffix;
 
-	@Override
-	public String getSuffix() {
-		return suffix;
-	}
+    private String prefix;
 
-	@Override
-	public void setSuffix(String suffix) {
-		this.suffix = suffix;
-	}
+    @Override
+    public String getSurname() {
+        return surname;
+    }
 
-	@Override
-	public String getPrefix() {
-		return prefix;
-	}
+    @Override
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
-	@Override
-	public void setPrefix(String preffix) {
-		this.prefix = preffix;
-	}
+    @Override
+    public String getGiven() {
+        return given;
+    }
 
-	@Override
-	public void addAclRule(AclRule rule) {
-		rules.add(rule);
-	}
+    @Override
+    public void setGiven(String given) {
+        this.given = given;
+    }
 
-	@Override
-	public List<AclRule> getAclRules() {
-		return Collections.unmodifiableList(rules);
-	}
+    @Override
+    public String getSuffix() {
+        return suffix;
+    }
 
-	@Override
-	public void setAclRules(List<AclRule> rules) {
-		this.rules = rules;
-	}
+    @Override
+    public void setSuffix(String suffix) {
+        this.suffix = suffix;
+    }
 
-	@Override
-	public void removeAclRule(AclRule rule) {
-		rules.remove(rule);
-	}
+    @Override
+    public String getPrefix() {
+        return prefix;
+    }
 
-	@Override
-	public boolean hasAclRules() {
-		if (rules != null && rules.size() > 0) {
-			return true;
-		}
-		return false;
-	}
-	
-	
+    @Override
+    public void setPrefix(String preffix) {
+        this.prefix = preffix;
+    }
 
+    @Override
+    public void addAclRule(AclRule rule) {
+        rules.add(rule);
+    }
+
+    @Override
+    public List<AclRule> getAclRules() {
+        return Collections.unmodifiableList(rules);
+    }
+
+    @Override
+    public void setAclRules(List<AclRule> rules) {
+        this.rules = rules;
+    }
+
+    @Override
+    public void removeAclRule(AclRule rule) {
+        rules.remove(rule);
+    }
+
+    @Override
+    public boolean hasAclRules() {
+        if (rules != null && rules.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 }
