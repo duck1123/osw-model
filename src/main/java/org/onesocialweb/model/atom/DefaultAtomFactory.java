@@ -39,6 +39,11 @@ public class DefaultAtomFactory extends AtomFactory {
     }
 
     @Override
+    public AtomGenerator generator() {
+        return new DefaultAtomGenerator();
+    }
+
+    @Override
     public AtomPerson person() {
         return new DefaultAtomPerson();
     }

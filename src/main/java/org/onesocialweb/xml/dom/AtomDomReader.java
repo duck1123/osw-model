@@ -25,6 +25,7 @@ import org.onesocialweb.model.atom.AtomCategory;
 import org.onesocialweb.model.atom.AtomContent;
 import org.onesocialweb.model.atom.AtomEntry;
 import org.onesocialweb.model.atom.AtomFactory;
+import org.onesocialweb.model.atom.AtomGenerator;
 import org.onesocialweb.model.atom.AtomLink;
 import org.onesocialweb.model.atom.AtomPerson;
 import org.onesocialweb.model.atom.AtomReplyTo;
@@ -90,6 +91,14 @@ public abstract class AtomDomReader {
         }
 
         return entry;
+    }
+
+    public AtomGenerator readGenerator(Element element) {
+        AtomGenerator generator = factory.generator();
+        generator.setUri(DomHelper.getElementAttribute(element, "uri"));
+        generator.setVersion(DomHelper.getElementAttribute(element, "version"));
+        generator.setText(element.getTextContent().trim());
+        return generator;
     }
 
     /* (non-Javadoc)

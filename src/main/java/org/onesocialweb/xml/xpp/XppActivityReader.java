@@ -27,6 +27,7 @@ import org.onesocialweb.model.atom.AtomCategory;
 import org.onesocialweb.model.atom.AtomContent;
 import org.onesocialweb.model.atom.AtomEntry;
 import org.onesocialweb.model.atom.AtomFactory;
+import org.onesocialweb.model.atom.AtomGenerator;
 import org.onesocialweb.model.atom.AtomLink;
 import org.onesocialweb.model.atom.AtomPerson;
 import org.onesocialweb.model.atom.AtomReplyTo;
@@ -106,7 +107,7 @@ public abstract class XppActivityReader implements XppReader<ActivityEntry> {
 
     /**
      * @param parser
-     * @returns A new AtomPerson
+     * @return A new AtomPerson
      * @throws XmlPullParserException
      * @throws IOException
      */
@@ -245,6 +246,41 @@ public abstract class XppActivityReader implements XppReader<ActivityEntry> {
         return recipient;
     }
 
+    /**
+     * @param parser a XmlPullParser positioned at the current element
+     * @return a new AtomGenerator populated from the content of the element
+     *   contained in the parser.
+     */
+    protected AtomGenerator parseGenerator(XmlPullParser parser)
+        throws XmlPullParserException, IOException {
+        final AtomGenerator generator = atomFactory.generator();
+
+        for (int i = 0; i < parser.getAttributeCount(); i++) {
+            String name = parser.getAttributeName(i);
+            String value = parser.getAttributeValue(i).trim();
+
+            if (name.equals("uri")) {
+                generator.setUri(value);
+            } else if (name.equals("version")) {
+                generator.setVersion(value);
+            }
+        }
+
+        boolean done = false;
+
+        while (!done) {
+            int eventType = parser.next();
+
+            if (eventType == XmlPullParser.TEXT) {
+                generator.setText(parser.getText().trim());
+            } else if (eventType == XmlPullParser.END_TAG) {
+                done = true;
+            }
+        }
+
+        return generator;
+    }
+
     protected void readAtomEntryElement(AtomEntry entry, XmlPullParser parser) throws XmlPullParserException, IOException {
         String name = parser.getName();
 
@@ -267,6 +303,8 @@ public abstract class XppActivityReader implements XppReader<ActivityEntry> {
             entry.setUpdated(parseDate(parser.nextText().trim()));
         } else if (name.equals(Atom.TITLE_ELEMENT)) {
             entry.setTitle(parser.nextText().trim());
+        } else if (name.equals("generator")) {
+            entry.setGenerator(parseGenerator(parser));
         }
     }
 

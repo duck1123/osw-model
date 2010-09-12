@@ -24,6 +24,8 @@ public abstract class AtomFactory {
 
     public abstract AtomEntry entry();
 
+    public abstract AtomGenerator generator();
+
     public abstract AtomLink link();
 
     public abstract AtomReplyTo reply();
@@ -38,6 +40,14 @@ public abstract class AtomFactory {
         category.setLabel(label);
         category.setScheme(scheme);
         return category;
+    }
+
+    public AtomGenerator generator(String text, String uri, String version) {
+        AtomGenerator generator = generator();
+        generator.setText(text);
+        generator.setUri(uri);
+        generator.setVersion(version);
+        return generator;
     }
 
     public AtomContent content(String value, String type, String src) {
