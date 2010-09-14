@@ -14,51 +14,50 @@
  *  limitations under the License.
  *
  */
-package org.onesocialweb.model.relation;
+package org.onesocialweb.xml.dom;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
+import org.dom4j.io.DOMWriter;
 import org.dom4j.io.SAXReader;
 import org.junit.Before;
 import org.junit.Test;
-import org.onesocialweb.xml.dom.RelationDomReader;
-import org.onesocialweb.xml.dom.imp.DefaultRelationDomReader;
-import org.onesocialweb.xml.dom4j.ElementAdapter;
-import org.onesocialweb.xml.namespace.Onesocialweb;
+import org.onesocialweb.model.atom.AtomEntry;
+import org.onesocialweb.xml.dom.imp.DefaultAtomDomReader;
+import org.w3c.dom.Element;
 
-public class RelationDomReaderTest {
+public class AtomDomReaderTest {
 
-    private RelationDomReader relationDomReader;
+    private DefaultAtomDomReader atomDomReader;
 
     @Before
     public void setUp() throws Exception {
-        relationDomReader = new DefaultRelationDomReader();
+        atomDomReader = new DefaultAtomDomReader();
     }
 
     @Test
-    public void testLoadXml() throws DocumentException {
-        Relation relation = readEntry("relation.xml");
-        assertNotNull(relation);
+    public void testLink() throws DocumentException {
+        AtomEntry entry = readEntry("atom-link.xml");
+        assertNotNull(entry);
     }
 
-    protected Relation readEntry(String path) throws DocumentException {
-        org.w3c.dom.Element root = readDocument(path);
+    protected AtomEntry readEntry(String path) throws DocumentException {
+        org.w3c.dom.Document document = readDocument(path);
+        Element root = (Element) document.getFirstChild();
 
-        assertEquals(Onesocialweb.RELATION_ELEMENT, root.getNodeName());
-        assertEquals(Onesocialweb.NAMESPACE, root.getNamespaceURI());
+        assertEquals(root.getNodeName(), "entry");
+        assertEquals(root.getNamespaceURI(), "http://www.w3.org/2005/Atom");
 
-        Relation relation = relationDomReader.readElement(root);
-        assertNotNull(relation);
-
-        return relation;
+        return atomDomReader.readEntry(root);
     }
 
-    protected org.w3c.dom.Element readDocument(String path) throws DocumentException {
+    protected org.w3c.dom.Document readDocument(String path) throws DocumentException {
         SAXReader reader = new SAXReader();
         Document document = reader.read(getClass().getClassLoader().getResourceAsStream(path));
-        return new ElementAdapter(document.getRootElement());
+        DOMWriter writer = new DOMWriter();
+        return writer.write(document);
     }
 }

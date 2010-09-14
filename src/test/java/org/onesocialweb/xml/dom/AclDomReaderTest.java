@@ -14,7 +14,7 @@
  *  limitations under the License.
  *
  */
-package org.onesocialweb.model.acl;
+package org.onesocialweb.xml.dom;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -27,6 +27,11 @@ import org.dom4j.io.DOMWriter;
 import org.dom4j.io.SAXReader;
 import org.junit.Before;
 import org.junit.Test;
+import org.onesocialweb.model.acl.AclAction;
+import org.onesocialweb.model.acl.AclFactory;
+import org.onesocialweb.model.acl.AclRule;
+import org.onesocialweb.model.acl.AclSubject;
+import org.onesocialweb.model.acl.DefaultAclFactory;
 import org.onesocialweb.xml.dom.AclDomReader;
 import org.onesocialweb.xml.dom.imp.DefaultAclDomReader;
 import org.w3c.dom.Element;

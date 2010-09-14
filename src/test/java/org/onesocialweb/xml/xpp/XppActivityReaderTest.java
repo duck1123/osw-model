@@ -14,32 +14,37 @@
  *  limitations under the License.
  *
  */
-package org.onesocialweb.model.relation;
+package org.onesocialweb.xml.xpp;
 
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 
 import org.junit.Test;
-import org.onesocialweb.xml.xpp.imp.DefaultXppRelationReader;
+import org.onesocialweb.model.activity.ActivityEntry;
+import org.onesocialweb.model.activity.ActivityFactory;
+import org.onesocialweb.model.activity.DefaultActivityFactory;
+import org.onesocialweb.model.atom.AtomFactory;
+import org.onesocialweb.model.atom.DefaultAtomFactory;
+import org.onesocialweb.xml.xpp.imp.DefaultXppActivityReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-public class XppRelationReaderTest {
+public class XppActivityReaderTest {
 
     @Test
     public void testParse() {
 
-        Relation relation = null;
+        ActivityEntry entry = null;
         try {
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             factory.setNamespaceAware(true);
             XmlPullParser xpp = factory.newPullParser();
-            xpp.setInput(getClass().getClassLoader().getResourceAsStream("relation.xml"), "UTF-8");
-            DefaultXppRelationReader reader = new DefaultXppRelationReader();
+            xpp.setInput(getClass().getClassLoader().getResourceAsStream("activity-entry.xml"), "UTF-8");
+            CustomXppActivityReader reader = new CustomXppActivityReader();
             xpp.next();
-            relation = reader.parse(xpp);
+            entry = reader.parse(xpp);
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -47,6 +52,19 @@ public class XppRelationReaderTest {
             e.printStackTrace();
         }
 
-        assertNotNull(relation);
+        assertNotNull(entry);
+    }
+
+    private class CustomXppActivityReader extends DefaultXppActivityReader {
+
+        @Override
+        protected ActivityFactory getActivityFactory() {
+            return new DefaultActivityFactory();
+        }
+
+        @Override
+        protected AtomFactory getAtomFactory() {
+            return new DefaultAtomFactory();
+        }
     }
 }

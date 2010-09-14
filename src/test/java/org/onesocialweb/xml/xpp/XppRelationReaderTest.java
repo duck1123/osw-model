@@ -14,34 +14,33 @@
  *  limitations under the License.
  *
  */
-package org.onesocialweb.model.activity;
+package org.onesocialweb.xml.xpp;
 
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 
 import org.junit.Test;
-import org.onesocialweb.model.atom.AtomFactory;
-import org.onesocialweb.model.atom.DefaultAtomFactory;
-import org.onesocialweb.xml.xpp.imp.DefaultXppActivityReader;
+import org.onesocialweb.model.relation.Relation;
+import org.onesocialweb.xml.xpp.imp.DefaultXppRelationReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-public class XppActivityReaderTest {
+public class XppRelationReaderTest {
 
     @Test
     public void testParse() {
 
-        ActivityEntry entry = null;
+        Relation relation = null;
         try {
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             factory.setNamespaceAware(true);
             XmlPullParser xpp = factory.newPullParser();
-            xpp.setInput(getClass().getClassLoader().getResourceAsStream("activity-entry.xml"), "UTF-8");
-            CustomXppActivityReader reader = new CustomXppActivityReader();
+            xpp.setInput(getClass().getClassLoader().getResourceAsStream("relation.xml"), "UTF-8");
+            DefaultXppRelationReader reader = new DefaultXppRelationReader();
             xpp.next();
-            entry = reader.parse(xpp);
+            relation = reader.parse(xpp);
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -49,19 +48,6 @@ public class XppActivityReaderTest {
             e.printStackTrace();
         }
 
-        assertNotNull(entry);
-    }
-
-    private class CustomXppActivityReader extends DefaultXppActivityReader {
-
-        @Override
-        protected ActivityFactory getActivityFactory() {
-            return new DefaultActivityFactory();
-        }
-
-        @Override
-        protected AtomFactory getAtomFactory() {
-            return new DefaultAtomFactory();
-        }
+        assertNotNull(relation);
     }
 }
