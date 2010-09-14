@@ -80,6 +80,5 @@ public class ActivityXmlWriterTest {
 
         //Very simple stuff...
         ActivityXmlWriter writer=new ActivityXmlWriter();
-        System.out.println(writer.toXml(entry));
     }
 }

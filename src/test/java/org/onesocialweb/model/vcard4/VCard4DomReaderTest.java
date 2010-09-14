@@ -47,8 +47,6 @@ public class VCard4DomReaderTest {
 
         // Add a fictive user id
         profile.setUserId("alice@wonderland.it");
-
-        System.out.println(profile);
     }
 
     protected Profile readProfile(String path) throws DocumentException {

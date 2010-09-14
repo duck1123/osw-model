@@ -92,6 +92,5 @@ public class VCard4XmlWriterTest {
 
         //Very simple stuff...
         VCard4XmlWriter writer=new VCard4XmlWriter();
-        System.out.println(writer.toXml(profile));
     }
 }
