@@ -132,4 +132,12 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+    <repositories>
+        <repository>
+            <id>osw-repo</id>
+            <name>osw-repo-google</name>
+            <url>http://osw-repo.googlecode.com/svn/trunk/</url>
+        </repository>
+    </repositories>
 </project>
