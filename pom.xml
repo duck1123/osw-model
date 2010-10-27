@@ -10,13 +10,6 @@
   <description>Common data model, XML parsers/writers and other interfaces</description>
   <url>http://onesocialweb.org/</url>
 
-  <distributionManagement>
-    <site>
-      <id>duck1123-fork</id>
-      <url>gitsite:git@github.com/duck1123/osw-model.git</url>
-    </site>
-  </distributionManagement>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
