@@ -10,6 +10,7 @@
 		<uri>http://www.facebook.com/people/Snapshot-Smith/499225643</uri> 
 	</author>
 	<category term="Upload Photos" label="Upload Photos" /> 
+	<generator uri="http://example.com/" version="1.0">Example Generator</generator>
 	<activity:verb> http://activitystrea.ms/schema/1.0/post/ </activity:verb> 
 	<activity:object> 
 		<id>http://www.facebook.com/photo.php?pid=28&amp;id=499225643&amp;ref=at</id> 

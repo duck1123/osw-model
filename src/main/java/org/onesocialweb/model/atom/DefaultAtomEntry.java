@@ -38,6 +38,7 @@ public class DefaultAtomEntry extends DefaultAtomCommon implements AtomEntry {
 	
 	private String parentJID=null;
 	
+	private AtomGenerator generator = null;
 
 	private List<AtomLink> links = new ArrayList<AtomLink>();
 
@@ -82,7 +83,25 @@ public class DefaultAtomEntry extends DefaultAtomCommon implements AtomEntry {
 		this.recipients.add(to);
 	}
 	
+	@Override
+	public AtomGenerator getGenerator() {
+		return generator;
+	}
 
+	@Override
+	public boolean hasGenerator() {
+		return generator != null;
+	}
+	
+	@Override
+	public void setGenerator(AtomGenerator generator) {
+		this.generator = generator;
+	}
+	
+	@Override
+	public void removeGenerator() {
+		this.generator = null;
+	}
 	
 	@Override
 	public String getParentId() {
@@ -360,6 +379,9 @@ public class DefaultAtomEntry extends DefaultAtomCommon implements AtomEntry {
 		}
 		if (title != null) {
 			buffer.append("title:" + title + " ");
+		}
+		if (hasGenerator()) {
+			buffer.append("generator:" + getGenerator().toString() + " ");
 		}
 		for (AtomPerson atomPerson : authors) {
 			buffer.append(atomPerson.toString());

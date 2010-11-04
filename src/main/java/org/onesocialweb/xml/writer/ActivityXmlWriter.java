@@ -25,6 +25,7 @@ import org.onesocialweb.model.activity.ActivityVerb;
 import org.onesocialweb.model.atom.AtomCategory;
 import org.onesocialweb.model.atom.AtomContent;
 import org.onesocialweb.model.atom.AtomEntry;
+import org.onesocialweb.model.atom.AtomGenerator;
 import org.onesocialweb.model.atom.AtomLink;
 import org.onesocialweb.model.atom.AtomPerson;
 import org.onesocialweb.model.atom.AtomReplyTo;
@@ -67,6 +68,29 @@ public class ActivityXmlWriter extends XmlWriter {
 				text("activity:" + Activitystreams.VERB_ELEMENT, verb.getValue());
 			}
 		}
+
+		if (entry.hasGenerator()) {
+			AtomGenerator generator = entry.getGenerator();
+
+			startTag("generator");
+
+			if (generator.hasUri()) {
+				attribute("uri", generator.getUri());
+			}
+
+			if (generator.hasVersion()) {
+				attribute("version", generator.getVersion());
+			}
+
+			endOpen();
+
+			if (generator.hasText()) {
+				buffer.append(generator.getText());
+			}
+
+			closeTag("generator");
+		}
+
 		if (entry.hasObjects()) {
 			for (ActivityObject object : entry.getObjects()) {
 				openTag("activity:" + Activitystreams.OBJECT_ELEMENT);

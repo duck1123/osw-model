@@ -47,6 +47,12 @@ public interface AtomEntry {
 	
 	public List<AtomReplyTo> getRecipients();
 	
+	/**
+	 * @return the generator associated with the entry
+	 * @since 0.7
+	 */
+	public AtomGenerator getGenerator();
+
 	public String getId();
 	
 	public List<AtomLink> getLinks();
@@ -72,6 +78,12 @@ public interface AtomEntry {
 	public boolean hasContents();
 	
 	public boolean hasContributors();
+	
+	/**
+	 * @return whether or not the entry contains a generator element
+	 * @since 0.7
+	 */
+	public boolean hasGenerator();
 	
 	public boolean hasId();
 	
@@ -99,6 +111,13 @@ public interface AtomEntry {
 	
 	public void removeContributor(AtomPerson person);
 	
+	/**
+	 * Removes the Generator element (if any)
+	 *
+	 * @since 0.7
+	 */
+	public void removeGenerator();
+	
 	public void removeLink(AtomLink link);
 	
 	public void removeRecipient(AtomReplyTo to);
@@ -114,6 +133,14 @@ public interface AtomEntry {
 	public void setContents(List<AtomContent> contents);
 
 	public void setContributors(List<AtomPerson> contributors);
+
+	/**
+	 * Sets a generator element on the entry.
+	 *
+	 * @param generator
+	 * @since 0.7
+	 */
+	public void setGenerator(AtomGenerator generator);
 
 	public void setId(String id);
 

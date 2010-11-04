@@ -80,6 +80,12 @@ public abstract class ActivityDomReader {
 			entry.addObject(readObject((Element) objects.item(i)));
 		}
 
+		// Get the generator
+		Element generator = DomHelper.getElement(element, "generator", Atom.NAMESPACE);
+		if (generator != null) {
+			entry.setGenerator(atomDomReader.readGenerator(generator));
+		}
+
 		// Get the acl rules
 		NodeList rules = element.getElementsByTagNameNS(Onesocialweb.NAMESPACE, "acl-rule");
 		for (int i = 0; i < rules.getLength(); i++) {

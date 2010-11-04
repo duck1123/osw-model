@@ -24,6 +24,7 @@ import java.util.Date;
 import org.onesocialweb.model.atom.AtomCategory;
 import org.onesocialweb.model.atom.AtomContent;
 import org.onesocialweb.model.atom.AtomEntry;
+import org.onesocialweb.model.atom.AtomGenerator;
 import org.onesocialweb.model.atom.AtomLink;
 import org.onesocialweb.model.atom.AtomPerson;
 import org.onesocialweb.model.atom.AtomReplyTo;
@@ -102,6 +103,14 @@ public abstract class AtomDomWriter {
 			}
 		}
 		
+		if (entry.hasGenerator()) {
+			Element e =
+				target.getOwnerDocument()
+				.createElementNS(Atom.NAMESPACE, "generator");
+			target.appendChild(e);
+			write(entry.getGenerator(), e);
+		}
+
 		if (entry.hasRecipients()) {
 			for (AtomReplyTo recipient : entry.getRecipients()) {
 				Element e = (Element) target.appendChild(target.getOwnerDocument().createElementNS(AtomThreading.NAMESPACE, AtomThreading.IN_REPLY_TO_ELEMENT));
@@ -118,10 +127,9 @@ public abstract class AtomDomWriter {
 			
 			Element e2 = (Element) target.appendChild(target.getOwnerDocument().createElementNS(AtomThreading.NAMESPACE, AtomThreading.IN_REPLY_TO_ELEMENT));
 			e2.setAttribute(AtomThreading.REF_ATTRIBUTE, entry.getParentId());
-			e2.setAttribute(AtomThreading.HREF_ATTRIBUTE, "xmpp:"+entry.getParentJID()+"?;node=urn:xmpp:microblog:0;item="+entry.getParentId());			
+			e2.setAttribute(AtomThreading.HREF_ATTRIBUTE, "xmpp:"+entry.getParentJID()+"?;node=urn:xmpp:microblog:0;item="+entry.getParentId());
+			
 		}
-		
-		
 	}
 	
 	/* (non-Javadoc)
@@ -140,6 +148,20 @@ public abstract class AtomDomWriter {
 		if (content.hasSrc()) target.setAttribute(Atom.SRC_ATTRIBUTE, content.getSrc());
 		if (content.hasType()) target.setAttribute(Atom.TYPE_ATTRIBUTE, content.getType());
 		if (content.hasValue()) setTextContent(target, content.getValue());		
+	}
+	
+	public void write(AtomGenerator generator, Element target) {
+		if (generator.hasVersion()) {
+			target.setAttribute("version", generator.getVersion());
+		}
+		
+		if (generator.hasUri()) {
+			target.setAttribute("uri", generator.getUri());
+		}
+		
+		if (generator.hasText()) {
+			setTextContent(target, generator.getText());
+		}
 	}
 	
 	/* (non-Javadoc)

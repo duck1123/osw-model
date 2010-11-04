@@ -16,15 +16,18 @@
  */
 package org.onesocialweb.xml.xpp;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.junit.Test;
 import org.onesocialweb.model.activity.ActivityEntry;
 import org.onesocialweb.model.activity.ActivityFactory;
 import org.onesocialweb.model.activity.DefaultActivityFactory;
 import org.onesocialweb.model.atom.AtomFactory;
+import org.onesocialweb.model.atom.AtomGenerator;
 import org.onesocialweb.model.atom.DefaultAtomFactory;
 import org.onesocialweb.xml.xpp.imp.DefaultXppActivityReader;
 import org.xmlpull.v1.XmlPullParser;
@@ -32,6 +35,30 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 public class XppActivityReaderTest {
+
+	@Test
+	public void testParseGenerator() {
+		try {
+			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+			factory.setNamespaceAware(true);
+			XmlPullParser xpp = factory.newPullParser();
+			InputStream resource = getClass().getClassLoader()
+				.getResourceAsStream("generator-element.xml");
+			xpp.setInput(resource, "UTF-8");
+			xpp.next();
+			CustomXppActivityReader reader = new CustomXppActivityReader();
+			AtomGenerator generator = reader.parseGenerator(xpp);
+
+			assertEquals(generator.getVersion(), "1.0.1");
+			assertEquals(generator.getText(), "Example Generator");
+			assertEquals(generator.getUri(), "http://example.com");
+		}  catch (XmlPullParserException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	@Test
 	public void testParse() {
